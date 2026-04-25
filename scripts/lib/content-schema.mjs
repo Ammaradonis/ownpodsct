@@ -84,6 +84,14 @@ export const mediaSchema = z.object({
   sha256: z.string().regex(/^[a-f0-9]{64}$/).optional(),
 });
 
+export const audioTrackSchema = z.object({
+  title: z.string().min(1).max(255),
+  url: z.string().url().startsWith('https://archive.org/'),
+  mime_type: mimeTypeSchema,
+  duration_seconds: z.number().int().positive(),
+  file_size_bytes: z.number().int().positive(),
+});
+
 export const videoSchema = z
   .object({
     enabled: z.boolean(),
@@ -120,6 +128,7 @@ export const episodeSchema = z.object({
   language: z.string().optional(),
   duration_seconds: z.number().int().positive(),
   media: mediaSchema,
+  audio_tracks: z.array(audioTrackSchema).default([]),
   video: videoSchema,
   archive_identifier: z.string().min(1).max(255),
   archive_url: z.string().url(),

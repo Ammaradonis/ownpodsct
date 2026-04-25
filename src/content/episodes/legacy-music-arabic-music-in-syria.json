@@ -1,0 +1,73 @@
+{
+  "id": "legacy-music-arabic-music-in-syria-2026-04-25",
+  "slug": "arabic-music-in-syria",
+  "category_id": "legacy-music",
+  "season": 1,
+  "episode_number": 1,
+  "episode_type": "full",
+  "title": "Arabic Music in SYRIA",
+  "subtitle": "A six-track collection presented in one episode.",
+  "description": "Six Arabic music MP3 tracks collected into a single Legacy Music episode.",
+  "description_html": "<p>Six Arabic music MP3 tracks collected into a single Legacy Music episode.</p>",
+  "summary": "A single Legacy Music episode containing six Arabic music tracks from the same Archive.org item.",
+  "publish_date": "2026-04-25T16:44:17Z",
+  "duration_seconds": 2242,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--Fairouz-Adesh-Kan-Finas-%D9%81%D9%8A%D8%B1%D9%88%D8%B2-%D8%A3%D8%AF%D9%8A%D8%B4-%D9%83%D8%A7%D9%86_320kbps.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 9063581
+  },
+  "audio_tracks": [
+    {
+      "title": "Fairouz - Adesh Kan Finas",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--Fairouz-Adesh-Kan-Finas-%D9%81%D9%8A%D8%B1%D9%88%D8%B2-%D8%A3%D8%AF%D9%8A%D8%B4-%D9%83%D8%A7%D9%86_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 227,
+      "file_size_bytes": 9063581
+    },
+    {
+      "title": "Ziad Bourji - Shou Helou",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--Ziad-Bourji-Shou-Helou-Music-Video-%D8%B2%D9%8A%D8%A7%D8%AF-%D8%A8%D8%B1%D8%AC%D9%8A_20260425_183939.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 247,
+      "file_size_bytes": 7048837
+    },
+    {
+      "title": "Remeit Shala Fouq Al-Bahr",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--%D8%A3%D8%BA%D9%86%D9%8A%D8%A9-%D8%B1%D9%85%D9%8A%D8%AA-%D8%B4%D8%A7%D9%84%D8%A7-%D9%81%D9%88%D9%82-%D8%A7%D9%84%D8%A8%D8%AD%D8%B1-%D8%A7%D9%84%D8%A3%D8%B5%D9%84%D9%8A%D8%A9-%D9%83%D8%A7%D9%85%D9%84%D8%A9_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 668,
+      "file_size_bytes": 26703696
+    },
+    {
+      "title": "Shadi Ranjous - Ala Ramshi",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--%D8%B4%D8%A7%D8%AF%D9%8A-%D8%B1%D9%86%D8%AC%D9%88%D8%B3-%D8%B9%D9%84%D9%89-%D8%B1%D9%85%D8%B4%D9%8A-%D9%81%D9%8A%D8%AF%D9%8A%D9%88-%D9%83%D9%84%D9%8A%D8%A8-%D8%A7%D9%84%D9%86%D8%B3%D8%AE%D8%A9-%D8%A7%D9%84%D8%A3%D8%B5%D9%84%D9%8A%D8%A9_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 342,
+      "file_size_bytes": 13667401
+    },
+    {
+      "title": "Shadi Ranjous - Am Brsem Wajhak Bnjoum",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--%D8%B4%D8%A7%D8%AF%D9%8A-%D8%B1%D9%86%D8%AC%D9%88%D8%B3-%D8%B9%D9%85-%D8%A8%D8%B1%D8%B3%D9%85-%D9%88%D8%AC%D9%87%D9%83-%D8%A8%D9%86%D8%AC%D9%88%D9%85_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 219,
+      "file_size_bytes": 8756381
+    },
+    {
+      "title": "Fairouz - Ala Hadeer Al-Bosta",
+      "url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--%D8%B9-%D9%87%D8%AF%D9%8A%D8%B1-%D8%A7%D9%84%D8%A8%D9%88%D8%B3%D8%B7%D8%A9-%D9%81%D9%8A%D8%B1%D9%88%D8%B2_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 540,
+      "file_size_bytes": 21585786
+    }
+  ],
+  "archive_identifier": "www.ssvid.net-_320kbps",
+  "archive_url": "https://archive.org/details/www.ssvid.net-_320kbps",
+  "chapters": [],
+  "show_notes_markdown": "## Tracks\n- Fairouz - Adesh Kan Finas\n- Ziad Bourji - Shou Helou\n- Remeit Shala Fouq Al-Bahr\n- Shadi Ranjous - Ala Ramshi\n- Shadi Ranjous - Am Brsem Wajhak Bnjoum\n- Fairouz - Ala Hadeer Al-Bosta\n\n## Source\n- [Internet Archive item](https://archive.org/details/www.ssvid.net-_320kbps)",
+  "guests": [],
+  "tags": ["legacy-music", "arabic-music", "syria"],
+  "explicit": false,
+  "status": "published"
+}

@@ -23,12 +23,21 @@ function initialisePlayer(wrapper) {
   const speedSelect = wrapper.querySelector('[data-speed]');
   const chapterButtons = wrapper.querySelectorAll('[data-chapter]');
   const copyTimestampButton = wrapper.querySelector('[data-copy-timestamp]');
+  const trackButtons = wrapper.querySelectorAll('[data-track-button]');
+  let currentTrackIndex = 0;
+
+  const storageKeyForTrack = () => `${storageKey}:track:${currentTrackIndex}`;
+  const setActiveTrackButton = () => {
+    trackButtons.forEach((button) => {
+      button.classList.toggle('is-active', Number(button.dataset.trackIndex || 0) === currentTrackIndex);
+    });
+  };
 
   activeWrapper = activeWrapper || wrapper;
 
   const restorePosition = () => {
     const hashTime = getCurrentHashTime();
-    const savedTime = Number(localStorage.getItem(storageKey) || '0');
+    const savedTime = Number(localStorage.getItem(storageKeyForTrack()) || '0');
     const duration = Number(media.duration || wrapper.dataset.duration || 0);
     const nextTime = hashTime ?? savedTime;
 
@@ -43,13 +52,13 @@ function initialisePlayer(wrapper) {
   media.addEventListener('timeupdate', () => {
     const second = Math.floor(media.currentTime);
     if (second !== lastSavedSecond && second % 5 === 0) {
-      localStorage.setItem(storageKey, String(second));
+      localStorage.setItem(storageKeyForTrack(), String(second));
       lastSavedSecond = second;
     }
   });
 
   media.addEventListener('ended', () => {
-    localStorage.removeItem(storageKey);
+    localStorage.removeItem(storageKeyForTrack());
   });
 
   wrapper.querySelectorAll('[data-skip]').forEach((button) => {
@@ -76,6 +85,29 @@ function initialisePlayer(wrapper) {
     const url = `${window.location.origin}${window.location.pathname}#t=${Math.floor(media.currentTime)}`;
     await navigator.clipboard.writeText(url);
   });
+
+  trackButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const nextTrackIndex = Number(button.dataset.trackIndex || 0);
+      const nextUrl = button.dataset.trackUrl;
+      const nextDuration = Number(button.dataset.trackDuration || 0);
+      if (!nextUrl || nextTrackIndex === currentTrackIndex) {
+        return;
+      }
+
+      currentTrackIndex = nextTrackIndex;
+      wrapper.dataset.duration = String(nextDuration || 0);
+      media.dataset.duration = String(nextDuration || 0);
+      media.src = nextUrl;
+      media.dataset.fallbackApplied = 'false';
+      media.load();
+      lastSavedSecond = -1;
+      setActiveTrackButton();
+      media.play().catch(() => {});
+    });
+  });
+
+  setActiveTrackButton();
 
   if ('mediaSession' in navigator) {
     navigator.mediaSession.metadata = new MediaMetadata({

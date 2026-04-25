@@ -2,12 +2,26 @@
 import type { CollectionEntry } from 'astro:content';
 
 import ChapterList from './ChapterList.astro';
+import { formatShortDuration } from '../lib/formatDuration';
 
 interface Props {
   episode: CollectionEntry<'episodes'>;
 }
 
 const { episode } = Astro.props;
+const audioTracks = episode.data.audio_tracks ?? [];
+const tracks =
+  audioTracks.length > 0
+    ? audioTracks
+    : [
+        {
+          title: episode.data.title,
+          url: episode.data.media.primary_url,
+          mime_type: episode.data.media.mime_type,
+          duration_seconds: episode.data.duration_seconds,
+          file_size_bytes: episode.data.media.file_size_bytes,
+        },
+      ];
 ---
 
 <section
@@ -16,6 +30,7 @@ const { episode } = Astro.props;
   data-episode-id={episode.data.id}
   data-mirror-url={episode.data.media.mirror_url ?? ''}
   data-title={episode.data.title}
+  data-duration={tracks[0]?.duration_seconds ?? episode.data.duration_seconds}
 >
   <div class="player-toolbar">
     <button type="button" data-skip="-15" aria-label="Skip back 15 seconds">-15s</button>
@@ -35,12 +50,34 @@ const { episode } = Astro.props;
   <audio
     controls
     preload="metadata"
-    src={episode.data.media.primary_url}
+    src={tracks[0]?.url ?? episode.data.media.primary_url}
     data-media
-    data-duration={episode.data.duration_seconds}
+    data-duration={tracks[0]?.duration_seconds ?? episode.data.duration_seconds}
   >
-    Your browser does not support audio. <a href={episode.data.media.primary_url}>Download MP3</a>.
+    Your browser does not support audio. <a href={tracks[0]?.url ?? episode.data.media.primary_url}>Download MP3</a>.
   </audio>
+  {tracks.length > 1 && (
+    <section class="track-list" aria-label="Episode tracks">
+      <h2>Tracks</h2>
+      <ul>
+        {tracks.map((track, index) => (
+          <li>
+            <button
+              type="button"
+              data-track-button
+              data-track-index={index}
+              data-track-url={track.url}
+              data-track-duration={track.duration_seconds}
+              class:list={{ 'is-active': index === 0 }}
+            >
+              <strong>{track.title}</strong>
+              <span>{formatShortDuration(track.duration_seconds)}</span>
+            </button>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
   <ChapterList chapters={episode.data.chapters} />
 </section>
 
@@ -78,5 +115,44 @@ const { episode } = Astro.props;
 
   audio {
     width: 100%;
+  }
+
+  .track-list {
+    display: grid;
+    gap: 0.8rem;
+  }
+
+  .track-list ul {
+    display: grid;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .track-list button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.95rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .track-list button.is-active {
+    border-color: var(--color-accent);
+    background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface) 88%);
+  }
+
+  .track-list span {
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
   }
 </style>
