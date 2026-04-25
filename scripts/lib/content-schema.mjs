@@ -100,6 +100,7 @@ export const archiveGallerySchema = z
     enabled: z.boolean(),
     title: z.string().min(1).max(255).optional(),
     description: z.string().max(4000).optional(),
+    additional_identifiers: z.array(z.string().min(1).max(255)).default([]),
   })
   .optional();
 

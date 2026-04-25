@@ -5,11 +5,7 @@ import BaseLayout from './BaseLayout.astro';
 import { formatDate } from '../lib/formatDate';
 import { formatDuration } from '../lib/formatDuration';
 import { slugifyTag } from '../lib/tags';
-import {
-  loadArchiveGallery,
-  ARCHIVE_TEXT_PREVIEW_LIMIT,
-  type RenderedArchiveFile,
-} from '../lib/archiveGallery';
+import { loadArchiveGallery, type RenderedArchiveFile } from '../lib/archiveGallery';
 
 interface Props {
   show: CollectionEntry<'categories'>;
@@ -27,11 +23,14 @@ let archiveFiles: RenderedArchiveFile[] = [];
 let archiveError: string | null = null;
 
 const galleryEnabled = episode.data.archive_gallery?.enabled === true;
-const archiveId = episode.data.archive_identifier;
+const archiveIds = [
+  episode.data.archive_identifier,
+  ...(episode.data.archive_gallery?.additional_identifiers ?? []),
+].filter((id): id is string => Boolean(id));
 
-if (galleryEnabled && archiveId) {
+if (galleryEnabled && archiveIds.length > 0) {
   try {
-    const result = await loadArchiveGallery(archiveId);
+    const result = await loadArchiveGallery(archiveIds);
     archiveFiles = result.files;
   } catch (err) {
     archiveError = (err as Error).message;
@@ -74,32 +73,13 @@ if (galleryEnabled && archiveId) {
 
           {archiveFiles.length > 0 && (
             <div class="archive-gallery__grid">
-              {archiveFiles.map(({ file, url, kind, textContent, textTruncated }) => (
-                <article class="archive-file">
-                  {kind === 'image' && (
-                    <img class="archive-file__image" src={url} alt={file.name} loading="lazy" />
-                  )}
-
-                  {kind === 'video' && (
-                    <video class="archive-file__video" src={url} controls preload="metadata" playsinline />
-                  )}
-
-                  {kind === 'text' && (
-                    <>
-                      <pre class="archive-file__text">{textContent}</pre>
-                      {textTruncated && (
-                        <p class="archive-file__meta">
-                          Truncated at {ARCHIVE_TEXT_PREVIEW_LIMIT.toLocaleString()} characters.
-                        </p>
-                      )}
-                    </>
-                  )}
-
-                  {kind === 'binary' && (
-                    <p class="archive-file__fallback">{file.name}</p>
-                  )}
-                </article>
-              ))}
+              {archiveFiles.map(({ file, url, kind }) =>
+                kind === 'video' ? (
+                  <video class="archive-file__video" src={url} controls preload="metadata" playsinline />
+                ) : (
+                  <img class="archive-file__image" src={url} alt={file.name} loading="lazy" />
+                ),
+              )}
             </div>
           )}
         </section>
@@ -306,9 +286,7 @@ if (galleryEnabled && archiveId) {
     gap: 1rem;
   }
 
-  .archive-gallery__status,
-  .archive-file__meta,
-  .archive-file__fallback {
+  .archive-gallery__status {
     color: var(--color-muted);
   }
 
@@ -318,44 +296,11 @@ if (galleryEnabled && archiveId) {
     gap: 1rem;
   }
 
-  .archive-file {
-    display: grid;
-    gap: 0.5rem;
-    overflow: hidden;
-  }
-
-  .archive-file__meta {
-    margin: 0;
-    font-size: 0.8rem;
-  }
-
   .archive-file__image,
   .archive-file__video {
     width: 100%;
     border-radius: 0.85rem;
     display: block;
-  }
-
-  .archive-file__text {
-    margin: 0;
-    max-height: 20rem;
-    overflow: auto;
-    padding: 0.85rem;
-    border-radius: 0.85rem;
-    background: color-mix(in srgb, var(--color-surface) 82%, black 18%);
-    color: var(--color-text);
-    white-space: pre-wrap;
-    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
-    font-size: 0.84rem;
-  }
-
-  .archive-file__fallback {
-    margin: 0;
-    padding: 0.85rem;
-    border-radius: 0.85rem;
-    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
-    font-size: 0.85rem;
-    word-break: break-word;
   }
 
   .episode-nav span {

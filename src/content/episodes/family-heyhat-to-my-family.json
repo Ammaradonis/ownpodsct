@@ -24,14 +24,14 @@
     "url": "https://archive.org/download/20260105-165205/VID-20260220-WA0000.mp4",
     "mime_type": "video/mp4",
     "file_size_bytes": 2184714,
-    "resolution": "358x642",
-    "poster_url": "https://archive.org/download/20260105-165205/__ia_thumb.jpg"
+    "resolution": "358x642"
   },
   "archive_identifier": "20260105-165205",
   "archive_url": "https://archive.org/details/20260105-165205",
   "chapters": [],
   "archive_gallery": {
-    "enabled": true
+    "enabled": true,
+    "additional_identifiers": ["20250802-100059"]
   },
   "guests": [],
   "tags": ["family", "heyhat", "archive", "memories"],

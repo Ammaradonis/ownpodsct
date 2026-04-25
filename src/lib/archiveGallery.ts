@@ -9,11 +9,10 @@ export interface ArchiveFile {
 }
 
 export interface RenderedArchiveFile {
+  archiveId: string;
   file: ArchiveFile;
   url: string;
-  kind: 'image' | 'video' | 'text' | 'binary';
-  textContent?: string;
-  textTruncated?: boolean;
+  kind: 'image' | 'video';
 }
 
 export interface ArchiveGalleryResult {
@@ -22,11 +21,9 @@ export interface ArchiveGalleryResult {
 }
 
 const CACHE_DIR = path.resolve('.archive-cache');
-const TEXT_PREVIEW_LIMIT = 30_000;
 const METADATA_TIMEOUT_MS = 10_000;
-const TEXT_FETCH_TIMEOUT_MS = 8_000;
 
-const memCache = new Map<string, Promise<ArchiveGalleryResult>>();
+const memCache = new Map<string, Promise<RenderedArchiveFile[]>>();
 
 const fetchWithTimeout = async (url: string, ms: number) => {
   const controller = new AbortController();
@@ -40,31 +37,31 @@ const fetchWithTimeout = async (url: string, ms: number) => {
 
 const isImage = (f: ArchiveFile) =>
   /\.(jpg|jpeg|png|gif|webp|svg)$/i.test(f.name) ||
-  /jpeg|png|image|item tile/i.test(f.format ?? '');
+  /jpeg|png|image/i.test(f.format ?? '');
 
 const isVideo = (f: ArchiveFile) =>
-  /\.(mp4|webm|mov|m4v)$/i.test(f.name) || /mpeg4|video/i.test(f.format ?? '');
+  /\.(mp4|webm|mov|m4v)$/i.test(f.name) || /mpeg4|h\.264|video/i.test(f.format ?? '');
 
-const isText = (f: ArchiveFile) => /\.(xml|txt|json|md|csv)$/i.test(f.name);
+const isThumb = (f: ArchiveFile) => /thumb/i.test(f.name);
 
 const archiveFileUrl = (id: string, name: string) =>
   `https://archive.org/download/${id}/${encodeURIComponent(name).replace(/%2F/g, '/')}`;
 
-const readDiskCache = async (archiveId: string): Promise<ArchiveGalleryResult | null> => {
+const readDiskCache = async (archiveId: string): Promise<RenderedArchiveFile[] | null> => {
   try {
     const raw = await fs.readFile(path.join(CACHE_DIR, `${archiveId}.json`), 'utf8');
-    return JSON.parse(raw) as ArchiveGalleryResult;
+    return JSON.parse(raw) as RenderedArchiveFile[];
   } catch {
     return null;
   }
 };
 
-const writeDiskCache = async (archiveId: string, result: ArchiveGalleryResult) => {
+const writeDiskCache = async (archiveId: string, files: RenderedArchiveFile[]) => {
   try {
     await fs.mkdir(CACHE_DIR, { recursive: true });
     await fs.writeFile(
       path.join(CACHE_DIR, `${archiveId}.json`),
-      JSON.stringify(result),
+      JSON.stringify(files),
       'utf8',
     );
   } catch {
@@ -72,7 +69,7 @@ const writeDiskCache = async (archiveId: string, result: ArchiveGalleryResult) =
   }
 };
 
-const fetchFresh = async (archiveId: string): Promise<ArchiveGalleryResult> => {
+const fetchFresh = async (archiveId: string): Promise<RenderedArchiveFile[]> => {
   const response = await fetchWithTimeout(
     `https://archive.org/metadata/${archiveId}`,
     METADATA_TIMEOUT_MS,
@@ -82,19 +79,32 @@ const fetchFresh = async (archiveId: string): Promise<ArchiveGalleryResult> => {
   }
   const item = await response.json();
   const allFiles: ArchiveFile[] = item.files ?? [];
-  const files = allFiles.filter(
-    (f) => f.source !== 'derivative' && (isImage(f) || isVideo(f)),
-  );
+  const noThumbs = allFiles.filter((f) => !isThumb(f));
 
-  const rendered: RenderedArchiveFile[] = files.map((file) => {
-    const url = archiveFileUrl(archiveId, file.name);
-    return { file, url, kind: isVideo(file) ? 'video' : 'image' };
+  const images = noThumbs.filter((f) => f.source === 'original' && isImage(f));
+
+  const videoFiles = noThumbs.filter(isVideo);
+  const iaDerivBases = new Set(
+    videoFiles
+      .filter((f) => /\.ia\.mp4$/i.test(f.name))
+      .map((f) => f.name.toLowerCase().replace(/\.ia\.mp4$/i, '')),
+  );
+  const videos = videoFiles.filter((f) => {
+    if (/\.ia\.mp4$/i.test(f.name)) return true;
+    if (f.source !== 'original') return false;
+    const base = f.name.toLowerCase().replace(/\.[^.]+$/, '');
+    return !iaDerivBases.has(base);
   });
 
-  return { files: rendered, totalCount: files.length };
+  return [...images, ...videos].map((file) => ({
+    archiveId,
+    file,
+    url: archiveFileUrl(archiveId, file.name),
+    kind: isVideo(file) ? 'video' : 'image',
+  }));
 };
 
-export async function loadArchiveGallery(archiveId: string): Promise<ArchiveGalleryResult> {
+async function loadArchiveItem(archiveId: string): Promise<RenderedArchiveFile[]> {
   const memo = memCache.get(archiveId);
   if (memo) return memo;
 
@@ -115,4 +125,11 @@ export async function loadArchiveGallery(archiveId: string): Promise<ArchiveGall
   }
 }
 
-export const ARCHIVE_TEXT_PREVIEW_LIMIT = TEXT_PREVIEW_LIMIT;
+export async function loadArchiveGallery(
+  archiveIds: string | string[],
+): Promise<ArchiveGalleryResult> {
+  const ids = Array.isArray(archiveIds) ? archiveIds : [archiveIds];
+  const perItem = await Promise.all(ids.map(loadArchiveItem));
+  const files = perItem.flat();
+  return { files, totalCount: files.length };
+}
