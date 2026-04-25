@@ -82,33 +82,14 @@ const fetchFresh = async (archiveId: string): Promise<ArchiveGalleryResult> => {
   }
   const item = await response.json();
   const allFiles: ArchiveFile[] = item.files ?? [];
-  const files = allFiles.filter((f) => f.source !== 'derivative');
-
-  const rendered = await Promise.all(
-    files.map(async (file): Promise<RenderedArchiveFile> => {
-      const url = archiveFileUrl(archiveId, file.name);
-      if (isImage(file)) return { file, url, kind: 'image' };
-      if (isVideo(file)) return { file, url, kind: 'video' };
-      if (isText(file)) {
-        try {
-          const r = await fetchWithTimeout(url, TEXT_FETCH_TIMEOUT_MS);
-          if (!r.ok) throw new Error(`HTTP ${r.status}`);
-          let text = await r.text();
-          const truncated = text.length > TEXT_PREVIEW_LIMIT;
-          if (truncated) text = text.slice(0, TEXT_PREVIEW_LIMIT);
-          return { file, url, kind: 'text', textContent: text, textTruncated: truncated };
-        } catch (err) {
-          return {
-            file,
-            url,
-            kind: 'text',
-            textContent: `Preview unavailable: ${(err as Error).message}`,
-          };
-        }
-      }
-      return { file, url, kind: 'binary' };
-    }),
+  const files = allFiles.filter(
+    (f) => f.source !== 'derivative' && (isImage(f) || isVideo(f)),
   );
+
+  const rendered: RenderedArchiveFile[] = files.map((file) => {
+    const url = archiveFileUrl(archiveId, file.name);
+    return { file, url, kind: isVideo(file) ? 'video' : 'image' };
+  });
 
   return { files: rendered, totalCount: files.length };
 };

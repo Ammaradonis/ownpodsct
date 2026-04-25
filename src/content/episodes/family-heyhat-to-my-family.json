@@ -6,10 +6,8 @@
   "episode_number": 1,
   "episode_type": "full",
   "title": "HeyHat to My Family",
-  "subtitle": "A single Family episode built from the full 67-file Internet Archive item.",
-  "description": "A Family episode that packages the Internet Archive item 20260105-165205 under one title, using the archive's playable MP4 as the main enclosure and linking every file from the item in the notes.",
-  "description_html": "<p>A Family episode that packages the Internet Archive item <strong>20260105-165205</strong> under one title, using the archive&rsquo;s playable MP4 as the main enclosure and linking every file from the item in the notes.</p>",
-  "summary": "One Family episode wrapping the full 67-file HeyHat archive item.",
+  "description": "HeyHat to My Family.",
+  "summary": "HeyHat to My Family.",
   "publish_date": "2026-04-25T10:35:00Z",
   "duration_seconds": 36,
   "media": {
@@ -32,11 +30,8 @@
   "archive_identifier": "20260105-165205",
   "archive_url": "https://archive.org/details/20260105-165205",
   "chapters": [],
-  "show_notes_markdown": "## Archive Source\n- [Internet Archive item: 20260105-165205](https://archive.org/details/20260105-165205)\n- [Primary playable file: VID-20260220-WA0000.mp4](https://archive.org/download/20260105-165205/VID-20260220-WA0000.mp4)\n\n## This Page\nEvery file from the Internet Archive item is rendered below on this episode page.\n\nThe page displays inline previews for images and video and visible metadata cards for files that browsers cannot preview directly.",
   "archive_gallery": {
-    "enabled": true,
-    "title": "HeyHat Archive Gallery",
-    "description": "All files from the Internet Archive item are displayed on this page."
+    "enabled": true
   },
   "guests": [],
   "tags": ["family", "heyhat", "archive", "memories"],

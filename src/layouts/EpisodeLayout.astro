@@ -23,24 +23,8 @@ interface Props {
 
 const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props;
 
-const formatBytes = (value?: string) => {
-  const bytes = Number(value);
-  if (!Number.isFinite(bytes) || bytes <= 0) {
-    return 'Unknown size';
-  }
-  const units = ['B', 'KB', 'MB', 'GB'];
-  let size = bytes;
-  let index = 0;
-  while (size >= 1024 && index < units.length - 1) {
-    size /= 1024;
-    index += 1;
-  }
-  return `${size.toFixed(size >= 100 || index === 0 ? 0 : 1)} ${units[index]}`;
-};
-
 let archiveFiles: RenderedArchiveFile[] = [];
 let archiveError: string | null = null;
-let archiveTotalCount = 0;
 
 const galleryEnabled = episode.data.archive_gallery?.enabled === true;
 const archiveId = episode.data.archive_identifier;
@@ -49,7 +33,6 @@ if (galleryEnabled && archiveId) {
   try {
     const result = await loadArchiveGallery(archiveId);
     archiveFiles = result.files;
-    archiveTotalCount = result.totalCount;
   } catch (err) {
     archiveError = (err as Error).message;
   }
@@ -75,7 +58,6 @@ if (galleryEnabled && archiveId) {
       <div class="episode-header__meta">
         <span>{formatDate(episode.data.publish_date)}</span>
         <span>{formatDuration(episode.data.duration_seconds)}</span>
-        <span>{episode.data.episode_type}</span>
       </div>
     </header>
 
@@ -84,28 +66,16 @@ if (galleryEnabled && archiveId) {
     <section class="episode-grid">
       {galleryEnabled ? (
         <section class="card reveal archive-gallery">
-          <div class="archive-gallery__header">
-            <h2>{episode.data.archive_gallery?.title ?? 'Archive Gallery'}</h2>
-            {archiveError ? (
-              <p class="archive-gallery__status">
-                Archive gallery failed to load at build time: {archiveError}
-              </p>
-            ) : (
-              <p class="archive-gallery__status">
-                Displaying {archiveFiles.length} of {archiveTotalCount} files.
-              </p>
-            )}
-          </div>
+          {archiveError && (
+            <p class="archive-gallery__status">
+              Archive gallery failed to load at build time: {archiveError}
+            </p>
+          )}
 
           {archiveFiles.length > 0 && (
             <div class="archive-gallery__grid">
               {archiveFiles.map(({ file, url, kind, textContent, textTruncated }) => (
                 <article class="archive-file">
-                  <h3 class="archive-file__title">{file.name}</h3>
-                  <p class="archive-file__meta">
-                    {file.format ?? 'Unknown'} | {formatBytes(file.size)} | {file.source ?? 'unknown source'}
-                  </p>
-
                   {kind === 'image' && (
                     <img class="archive-file__image" src={url} alt={file.name} loading="lazy" />
                   )}
@@ -119,17 +89,14 @@ if (galleryEnabled && archiveId) {
                       <pre class="archive-file__text">{textContent}</pre>
                       {textTruncated && (
                         <p class="archive-file__meta">
-                          Preview truncated at {ARCHIVE_TEXT_PREVIEW_LIMIT.toLocaleString()} characters.
+                          Truncated at {ARCHIVE_TEXT_PREVIEW_LIMIT.toLocaleString()} characters.
                         </p>
                       )}
                     </>
                   )}
 
                   {kind === 'binary' && (
-                    <div class="archive-file__fallback">
-                      <strong>Binary file (no inline preview).</strong>
-                      <span>This file is part of the archive item and is listed here as a visible item card.</span>
-                    </div>
+                    <p class="archive-file__fallback">{file.name}</p>
                   )}
                 </article>
               ))}
@@ -339,20 +306,9 @@ if (galleryEnabled && archiveId) {
     gap: 1rem;
   }
 
-  .archive-gallery {
-    display: grid;
-    gap: 1rem;
-  }
-
-  .archive-gallery__header {
-    display: grid;
-    gap: 0.5rem;
-  }
-
-  .archive-gallery__header p,
   .archive-gallery__status,
   .archive-file__meta,
-  .archive-file__fallback span {
+  .archive-file__fallback {
     color: var(--color-muted);
   }
 
@@ -364,29 +320,20 @@ if (galleryEnabled && archiveId) {
 
   .archive-file {
     display: grid;
-    gap: 0.75rem;
-    padding: 1rem;
-    border-radius: calc(var(--radius-card) - 0.35rem);
-    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
-    background: color-mix(in srgb, var(--color-surface) 92%, white 8%);
+    gap: 0.5rem;
     overflow: hidden;
-  }
-
-  .archive-file__title {
-    margin: 0;
-    font-size: 1rem;
-    word-break: break-word;
   }
 
   .archive-file__meta {
     margin: 0;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
   }
 
   .archive-file__image,
   .archive-file__video {
     width: 100%;
     border-radius: 0.85rem;
+    display: block;
   }
 
   .archive-file__text {
@@ -403,11 +350,12 @@ if (galleryEnabled && archiveId) {
   }
 
   .archive-file__fallback {
-    display: grid;
-    gap: 0.4rem;
+    margin: 0;
     padding: 0.85rem;
     border-radius: 0.85rem;
     background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    font-size: 0.85rem;
+    word-break: break-word;
   }
 
   .episode-nav span {
