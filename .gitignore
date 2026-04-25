@@ -1,0 +1,10 @@
+node_modules/
+dist/
+.astro/
+.netlify/
+playwright-report/
+test-results/
+coverage/
+public/feeds/*.xml
+!public/feeds/.gitkeep
+public/sitemap.xml

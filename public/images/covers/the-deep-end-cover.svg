@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="The Deep End cover art">
+  <defs>
+    <linearGradient id="sea" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#031d44" />
+      <stop offset="100%" stop-color="#0d5c63" />
+    </linearGradient>
+    <radialGradient id="sun" cx="50%" cy="22%" r="45%">
+      <stop offset="0%" stop-color="#ffd166" />
+      <stop offset="100%" stop-color="#ff7f51" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <rect width="1400" height="1400" fill="url(#sea)" />
+  <rect width="1400" height="1400" fill="url(#sun)" opacity="0.85" />
+  <path d="M0 930C230 820 470 790 700 870C930 950 1170 930 1400 840V1400H0Z" fill="#0a9396" opacity="0.75" />
+  <path d="M0 1040C240 960 480 1000 700 1095C920 1190 1160 1180 1400 1050V1400H0Z" fill="#094d5d" opacity="0.9" />
+  <text x="120" y="1060" fill="#f7f1e1" font-family="Georgia, serif" font-size="184" font-weight="700">The</text>
+  <text x="120" y="1225" fill="#f7f1e1" font-family="Georgia, serif" font-size="236" font-weight="700">Deep End</text>
+  <text x="128" y="1305" fill="#d8efe8" font-family="'Segoe UI', sans-serif" font-size="48" letter-spacing="10">UNDERWATER ARCHAEOLOGY INTERVIEWS</text>
+</svg>

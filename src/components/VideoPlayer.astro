@@ -1,0 +1,91 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import ChapterList from './ChapterList.astro';
+
+interface Props {
+  episode: CollectionEntry<'episodes'>;
+}
+
+const { episode } = Astro.props;
+const video = episode.data.video;
+---
+
+{video?.enabled && video.url && (
+  <section
+    class="player-shell card"
+    data-player
+    data-episode-id={episode.data.id}
+    data-mirror-url={episode.data.media.mirror_url ?? ''}
+    data-title={episode.data.title}
+  >
+    <div class="player-toolbar">
+      <button type="button" data-skip="-15" aria-label="Skip back 15 seconds">-15s</button>
+      <button type="button" data-skip="30" aria-label="Skip forward 30 seconds">+30s</button>
+      <label>
+        Speed
+        <select data-speed>
+          <option value="0.75">0.75x</option>
+          <option value="1" selected>1x</option>
+          <option value="1.25">1.25x</option>
+          <option value="1.5">1.5x</option>
+          <option value="2">2x</option>
+        </select>
+      </label>
+      <button type="button" data-copy-timestamp>Copy timestamp link</button>
+    </div>
+    <video
+      controls
+      preload="metadata"
+      src={video.url}
+      poster={video.poster_url ?? episode.data.episode_art?.url}
+      data-media
+      data-duration={episode.data.duration_seconds}
+    >
+      {episode.data.transcript_url && episode.data.transcript_url.endsWith('.vtt') && (
+        <track
+          kind="captions"
+          src={episode.data.transcript_url}
+          srclang={episode.data.language ?? 'en'}
+          default
+        />
+      )}
+      Your browser does not support video. <a href={video.url}>Download MP4</a>.
+    </video>
+    <ChapterList chapters={episode.data.chapters} />
+  </section>
+)}
+
+<script type="module" src="/scripts/player.js"></script>
+
+<style>
+  .player-shell {
+    display: grid;
+    gap: 1.2rem;
+  }
+
+  .player-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    align-items: center;
+  }
+
+  .player-toolbar button,
+  .player-toolbar label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+  }
+
+  video {
+    width: 100%;
+    border-radius: 1.4rem;
+    background: #020617;
+  }
+</style>

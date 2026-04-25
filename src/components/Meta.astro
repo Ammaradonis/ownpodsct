@@ -1,0 +1,47 @@
+---
+import { absoluteUrl, siteConfig } from '../lib/site';
+
+interface Props {
+  title: string;
+  description: string;
+  pathname: string;
+  image?: string;
+  audioUrl?: string;
+  type?: 'website' | 'article';
+  keywords?: string[];
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+}
+
+const {
+  title,
+  description,
+  pathname,
+  image,
+  audioUrl,
+  type = 'website',
+  keywords = [],
+  jsonLd,
+} = Astro.props;
+
+const canonical = absoluteUrl(pathname);
+const metaImage = absoluteUrl(image ?? '/favicon.svg');
+const jsonLdBlocks = Array.isArray(jsonLd) ? jsonLd : jsonLd ? [jsonLd] : [];
+---
+<title>{title}</title>
+<meta name="description" content={description} />
+<meta name="theme-color" content={siteConfig.themeColor} />
+<meta property="og:type" content={type} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={metaImage} />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={metaImage} />
+{audioUrl && <meta property="og:audio" content={audioUrl} />}
+{audioUrl && <meta property="og:audio:type" content="audio/mpeg" />}
+{keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
+<link rel="canonical" href={canonical} />
+<link rel="alternate" type="application/rss+xml" title={`${siteConfig.title} main feed`} href={absoluteUrl('/feeds/main.xml')} />
+{jsonLdBlocks.map((block) => <script type="application/ld+json" set:html={JSON.stringify(block)} />)}

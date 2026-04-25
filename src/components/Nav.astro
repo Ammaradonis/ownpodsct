@@ -1,0 +1,91 @@
+---
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header class="site-header">
+  <div class="shell nav-shell">
+    <a class="brand" href="/">
+      <span class="brand-mark" aria-hidden="true">A</span>
+      <span>
+        <strong>Archive Signal</strong>
+        <small>Static podcast publishing</small>
+      </span>
+    </a>
+
+    <nav aria-label="Primary">
+      <a href="/shows/">Shows</a>
+      <a href="/search/">Search</a>
+      <a href="/about/">About</a>
+      <a href="/feeds/main.xml">Main feed</a>
+    </nav>
+
+    <ThemeToggle />
+  </div>
+</header>
+
+<style>
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 30;
+    backdrop-filter: blur(24px);
+    background: color-mix(in srgb, var(--color-page) 82%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--color-border) 70%, transparent);
+  }
+
+  .nav-shell {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    min-height: 5rem;
+  }
+
+  .brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.9rem;
+    color: inherit;
+  }
+
+  .brand-mark {
+    display: inline-grid;
+    place-items: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    border-radius: 0.8rem;
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+    color: #fffaf4;
+    font-weight: 700;
+  }
+
+  .brand strong,
+  .brand small {
+    display: block;
+  }
+
+  .brand small {
+    color: var(--color-muted);
+  }
+
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  nav a {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--color-text);
+  }
+
+  @media (max-width: 840px) {
+    .nav-shell {
+      flex-wrap: wrap;
+      justify-content: center;
+      padding-block: 1rem;
+    }
+  }
+</style>

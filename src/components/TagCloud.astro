@@ -1,0 +1,48 @@
+---
+interface TagStat {
+  tag: string;
+  count: number;
+  slug: string;
+}
+
+interface Props {
+  tags: TagStat[];
+}
+
+const { tags } = Astro.props;
+const maxCount = Math.max(...tags.map((tag) => tag.count), 1);
+---
+
+{tags.length > 0 && (
+  <ul class="tag-cloud">
+    {tags.map((entry) => (
+      <li style={`--weight:${entry.count / maxCount}`}>
+        <a href={`/tags/${entry.slug}/`}>{entry.tag}</a>
+      </li>
+    ))}
+  </ul>
+)}
+
+<style>
+  .tag-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .tag-cloud li {
+    font-size: calc(0.9rem + (var(--weight) * 0.65rem));
+  }
+
+  .tag-cloud a {
+    display: inline-flex;
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    color: var(--color-text);
+  }
+</style>

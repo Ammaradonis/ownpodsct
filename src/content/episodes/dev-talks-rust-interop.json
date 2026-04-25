@@ -1,0 +1,61 @@
+{
+  "id": "dev-talks-rust-interop-2026-04-18",
+  "slug": "rust-interop",
+  "category_id": "dev-talks",
+  "season": 1,
+  "episode_number": 3,
+  "episode_type": "full",
+  "title": "Rust Interop Without Mythology",
+  "subtitle": "FFI boundaries, ownership hand-offs, and the mistakes teams repeat.",
+  "description": "Riley Stone and Priya Sethi go line by line through the habits that make Rust interop maintainable in mixed-language production systems.",
+  "description_html": "<p>Riley Stone and Priya Sethi go line by line through the habits that make Rust interop maintainable in mixed-language production systems.</p><p>The episode covers API surface design, panic containment, test strategy, and how to document unsafe edges clearly enough for other teams.</p>",
+  "summary": "Practical Rust interop decisions for production teams.",
+  "publish_date": "2026-04-18T15:00:00Z",
+  "duration_seconds": 2876,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/dev-talks-s01e03-20260418/dev-talks-ep03-rust-interop.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 46039040,
+    "bitrate_kbps": 128,
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "sha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc"
+  },
+  "archive_identifier": "dev-talks-s01e03-20260418",
+  "archive_url": "https://archive.org/details/dev-talks-s01e03-20260418",
+  "chapters": [
+    {
+      "start_seconds": 0,
+      "title": "Interop folklore versus actual constraints"
+    },
+    {
+      "start_seconds": 670,
+      "title": "Designing the boundary"
+    },
+    {
+      "start_seconds": 1540,
+      "title": "Testing panic isolation"
+    },
+    {
+      "start_seconds": 2330,
+      "title": "Operational ownership"
+    }
+  ],
+  "show_notes_markdown": "## Links\n- [Rust FFI Omnibus](https://jakegoulding.com/rust-ffi-omnibus/)\n- [Unwinding across FFI boundaries](https://doc.rust-lang.org/nomicon/ffi.html)",
+  "guests": [
+    {
+      "name": "Priya Sethi",
+      "role": "Staff Systems Engineer",
+      "url": "https://example.org/priya"
+    }
+  ],
+  "tags": ["rust", "ffi", "systems"],
+  "explicit": false,
+  "episode_art": {
+    "url": "/images/episodes/dev-talks-rust-interop.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "status": "published"
+}

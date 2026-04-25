@@ -1,0 +1,68 @@
+---
+import Footer from '../components/Footer.astro';
+import Meta from '../components/Meta.astro';
+import Nav from '../components/Nav.astro';
+
+import '../styles/reset.css';
+import '../styles/tokens.css';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  pathname: string;
+  image?: string;
+  audioUrl?: string;
+  type?: 'website' | 'article';
+  keywords?: string[];
+  jsonLd?: Record<string, unknown> | Array<Record<string, unknown>>;
+  preconnectArchive?: boolean;
+}
+
+const {
+  title,
+  description,
+  pathname,
+  image,
+  audioUrl,
+  type,
+  keywords,
+  jsonLd,
+  preconnectArchive = false,
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <Meta
+      title={title}
+      description={description}
+      pathname={pathname}
+      image={image}
+      audioUrl={audioUrl}
+      type={type}
+      keywords={keywords}
+      jsonLd={jsonLd}
+    />
+    <script is:inline>
+      (() => {
+        const stored = localStorage.getItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.themePreference = stored || 'auto';
+        document.documentElement.dataset.theme = stored || (prefersDark ? 'dark' : 'light');
+      })();
+    </script>
+    {preconnectArchive && <link rel="preconnect" href="https://archive.org" />}
+    <slot name="head" />
+  </head>
+  <body>
+    <Nav />
+    <main>
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

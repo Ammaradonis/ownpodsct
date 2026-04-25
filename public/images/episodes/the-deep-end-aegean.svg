@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="Shipwrecks of the Aegean episode art">
+  <rect width="1400" height="1400" fill="#0b132b" />
+  <path d="M0 920C200 850 420 815 700 860C980 905 1190 900 1400 830V1400H0Z" fill="#1c2541" />
+  <path d="M0 1020C200 965 430 990 700 1060C970 1130 1210 1140 1400 1080V1400H0Z" fill="#3a506b" />
+  <path d="M420 720L980 720L875 835H525Z" fill="#f4d58d" />
+  <path d="M690 458L785 720H610Z" fill="#f4d58d" />
+  <text x="106" y="1180" fill="#f6f7eb" font-family="Georgia, serif" font-size="140" font-weight="700">Aegean</text>
+  <text x="112" y="1285" fill="#c9d6df" font-family="'Segoe UI', sans-serif" font-size="56" letter-spacing="8">SHIPWRECKS AND DEEP CHARTS</text>
+</svg>

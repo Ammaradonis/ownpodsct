@@ -1,0 +1,72 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import { formatDate } from '../lib/formatDate';
+import { formatShortDuration } from '../lib/formatDuration';
+import { slugifyTag } from '../lib/tags';
+
+interface Props {
+  episode: CollectionEntry<'episodes'>;
+  showSlug: string;
+  showTitle?: string;
+}
+
+const { episode, showSlug, showTitle } = Astro.props;
+---
+
+<article class="episode-card card reveal">
+  <div class="episode-card__meta">
+    <span>{formatDate(episode.data.publish_date)}</span>
+    <span>{formatShortDuration(episode.data.duration_seconds)}</span>
+    {showTitle && <span>{showTitle}</span>}
+  </div>
+  <h2>
+    <a href={`/shows/${showSlug}/${episode.data.slug}/`}>{episode.data.title}</a>
+  </h2>
+  {episode.data.subtitle && <p class="subtitle">{episode.data.subtitle}</p>}
+  <p>{episode.data.summary ?? episode.data.description}</p>
+  {episode.data.tags.length > 0 && (
+    <ul class="episode-card__tags">
+      {episode.data.tags.slice(0, 4).map((tag) => (
+        <li>
+          <a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a>
+        </li>
+      ))}
+    </ul>
+  )}
+</article>
+
+<style>
+  .episode-card {
+    display: grid;
+    gap: 0.85rem;
+  }
+
+  .episode-card__meta,
+  .episode-card__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    color: var(--color-muted);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .episode-card__tags a {
+    color: var(--color-text);
+  }
+
+  .subtitle {
+    margin: 0;
+    color: var(--color-muted);
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.45rem, 2vw, 1.9rem);
+  }
+</style>

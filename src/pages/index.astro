@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import EpisodeCard from '../components/EpisodeCard.astro';
+import ShowCard from '../components/ShowCard.astro';
+import { getCategories } from '../lib/getCategories';
+import { getLatestEpisode, getPublishedEpisodes } from '../lib/getEpisodes';
+import { formatDate } from '../lib/formatDate';
+import { formatShortDuration } from '../lib/formatDuration';
+
+const categories = await getCategories();
+const latestEpisode = await getLatestEpisode();
+const allEpisodes = await getPublishedEpisodes();
+const recentEpisodes = allEpisodes.slice(0, 6);
+const showMap = new Map(categories.map((category) => [category.data.id, category]));
+const showEpisodeCounts = new Map(
+  categories.map((category) => [
+    category.data.id,
+    allEpisodes.filter((episode) => episode.data.category_id === category.data.id).length,
+  ]),
+);
+const latestShow = latestEpisode ? showMap.get(latestEpisode.data.category_id) : undefined;
+---
+
+<BaseLayout
+  title="Archive Signal | Static Podcast Platform"
+  description="Archive Signal is a static-first podcast network running on Astro, Archive.org, and a hand-built RSS pipeline."
+  pathname="/"
+  image={latestShow?.data.cover_art.url}
+>
+  <section class="shell home-hero reveal">
+    <div class="home-hero__copy">
+      <p class="eyebrow">Archive.org + Astro + Netlify</p>
+      <h1>Publish podcasts like a product, not a hosted form.</h1>
+      <p class="lede">
+        Archive Signal treats podcast publishing as versioned content. Episodes live in Git, media
+        streams from Archive.org, and every deploy regenerates feeds, pages, and search.
+      </p>
+      <div class="hero-actions">
+        <a class="hero-button hero-button--primary" href="/shows/">Browse shows</a>
+        <a class="hero-button" href="/search/">Search episodes</a>
+        <a class="hero-button" href="/feeds/main.xml">Main feed</a>
+      </div>
+    </div>
+
+    {latestEpisode && latestShow && (
+      <aside class="card hero-feature">
+        <p class="eyebrow">Newest release</p>
+        <h2>
+          <a href={`/shows/${latestShow.data.slug}/${latestEpisode.data.slug}/`}>
+            {latestEpisode.data.title}
+          </a>
+        </h2>
+        <p>{latestEpisode.data.summary ?? latestEpisode.data.description}</p>
+        <div class="hero-feature__meta">
+          <span>{latestShow.data.title}</span>
+          <span>{formatDate(latestEpisode.data.publish_date)}</span>
+          <span>{formatShortDuration(latestEpisode.data.duration_seconds)}</span>
+        </div>
+      </aside>
+    )}
+  </section>
+
+  <section class="shell section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Shows</p>
+        <h2>Series built for the long arc</h2>
+      </div>
+      <a href="/shows/">See all shows</a>
+    </div>
+    <div class="grid grid--shows">
+      {categories.map((show) => (
+        <ShowCard show={show} episodeCount={showEpisodeCounts.get(show.data.id) ?? 0} />
+      ))}
+    </div>
+  </section>
+
+  <section class="shell section">
+    <div class="section-heading">
+      <div>
+        <p class="eyebrow">Recent episodes</p>
+        <h2>Fresh from the feed</h2>
+      </div>
+    </div>
+    <div class="grid grid--episodes">
+      {recentEpisodes.map((episode) => {
+        const show = showMap.get(episode.data.category_id);
+        return show ? (
+          <EpisodeCard episode={episode} showSlug={show.data.slug} showTitle={show.data.title} />
+        ) : null;
+      })}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .home-hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1.3fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+    align-items: end;
+    padding-block: 2rem 3rem;
+  }
+
+  .home-hero__copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.9rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    font-weight: 600;
+  }
+
+  .hero-button--primary {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+    color: #fff9f2;
+    border-color: transparent;
+  }
+
+  .hero-feature {
+    display: grid;
+    gap: 1rem;
+    background:
+      radial-gradient(circle at top right, rgb(255 127 81 / 0.16), transparent 34%),
+      color-mix(in srgb, var(--color-surface) 92%, white 8%);
+  }
+
+  .hero-feature__meta,
+  .section-heading {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: end;
+  }
+
+  .hero-feature__meta {
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+  }
+
+  @media (max-width: 900px) {
+    .home-hero {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

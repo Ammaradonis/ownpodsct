@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Page not found | Archive Signal"
+  description="The page you requested does not exist."
+  pathname="/404/"
+>
+  <section class="shell page-hero reveal">
+    <p class="eyebrow">404</p>
+    <h1>That route is off the chart.</h1>
+    <p class="lede">
+      The page may have moved, or the URL may never have existed. Start with the show index or the
+      main feed.
+    </p>
+    <div class="hero-actions">
+      <a class="hero-button hero-button--primary" href="/shows/">Browse shows</a>
+      <a class="hero-button" href="/feeds/main.xml">Open main feed</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .hero-button {
+    display: inline-flex;
+    padding: 0.9rem 1.1rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    font-weight: 600;
+  }
+
+  .hero-button--primary {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+    color: #fff9f2;
+    border-color: transparent;
+  }
+</style>

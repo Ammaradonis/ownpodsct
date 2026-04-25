@@ -1,0 +1,45 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Search | Archive Signal"
+  description="Client-side search powered by Pagefind."
+  pathname="/search/"
+>
+  <Fragment slot="head">
+    <link href="/pagefind/pagefind-ui.css" rel="stylesheet" />
+  </Fragment>
+
+  <section class="shell page-hero reveal">
+    <p class="eyebrow">Search</p>
+    <h1>Find episodes across the whole network.</h1>
+    <p class="lede">
+      Search is built at deploy time with Pagefind, so it stays static and requires no backend.
+    </p>
+  </section>
+
+  <section class="shell section">
+    <div class="card">
+      <div id="search"></div>
+    </div>
+  </section>
+
+  <script type="module">
+    const container = document.querySelector('#search');
+
+    try {
+      const { PagefindUI } = await import('/pagefind/pagefind-ui.js');
+      new PagefindUI({
+        element: '#search',
+        showImages: false,
+        resetStyles: false,
+      });
+    } catch {
+      if (container) {
+        container.innerHTML =
+          '<p>Search assets are generated after <code>npm run build</code>. Run a full build to enable Pagefind locally.</p>';
+      }
+    }
+  </script>
+</BaseLayout>

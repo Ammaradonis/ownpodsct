@@ -1,0 +1,60 @@
+{
+  "id": "the-deep-end-aegean-2026-03-28",
+  "slug": "shipwrecks-of-the-aegean",
+  "category_id": "the-deep-end",
+  "season": 2,
+  "episode_number": 13,
+  "episode_type": "full",
+  "title": "Shipwrecks of the Aegean",
+  "subtitle": "What sonar can tell us before a diver ever hits the water.",
+  "description": "A breakdown of how teams map, classify, and prioritize submerged wreck sites across the Aegean.",
+  "summary": "Survey strategy, sonar, and the pace of underwater cataloging.",
+  "publish_date": "2026-03-28T09:00:00Z",
+  "duration_seconds": 3192,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/the-deep-end-s02e13-20260328/the-deep-end-ep13-aegean.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 51003392,
+    "bitrate_kbps": 128,
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb"
+  },
+  "archive_identifier": "the-deep-end-s02e13-20260328",
+  "archive_url": "https://archive.org/details/the-deep-end-s02e13-20260328",
+  "chapters": [
+    {
+      "start_seconds": 0,
+      "title": "Why some wrecks stay hidden"
+    },
+    {
+      "start_seconds": 608,
+      "title": "Survey planning"
+    },
+    {
+      "start_seconds": 1450,
+      "title": "Cataloging submerged sites"
+    },
+    {
+      "start_seconds": 2550,
+      "title": "The economics of expedition time"
+    }
+  ],
+  "show_notes_markdown": "## Links\n- [Aegean survey methods](https://example.org/aegean-survey)\n- [Marine remote sensing primer](https://example.org/remote-sensing)",
+  "guests": [
+    {
+      "name": "Prof. Elias Marin",
+      "role": "Survey Director",
+      "url": "https://example.org/marin"
+    }
+  ],
+  "tags": ["archaeology", "surveying", "mediterranean"],
+  "explicit": false,
+  "episode_art": {
+    "url": "/images/episodes/the-deep-end-aegean.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "status": "published"
+}

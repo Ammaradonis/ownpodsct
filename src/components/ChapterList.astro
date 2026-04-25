@@ -1,0 +1,63 @@
+---
+interface Chapter {
+  start_seconds: number;
+  title: string;
+}
+
+interface Props {
+  chapters: Chapter[];
+}
+
+const { chapters } = Astro.props;
+---
+
+{chapters.length > 0 && (
+  <section class="chapter-list">
+    <h2>Jump to a chapter</h2>
+    <ul>
+      {chapters.map((chapter) => (
+        <li>
+          <button type="button" data-chapter={chapter.start_seconds}>
+            <span>{String(Math.floor(chapter.start_seconds / 60)).padStart(2, '0')}:{String(chapter.start_seconds % 60).padStart(2, '0')}</span>
+            <strong>{chapter.title}</strong>
+          </button>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
+
+<style>
+  .chapter-list {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .chapter-list ul {
+    display: grid;
+    gap: 0.8rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .chapter-list button {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    align-items: center;
+    padding: 0.95rem 1rem;
+    border-radius: 1rem;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .chapter-list span {
+    color: var(--color-muted);
+    font-variant-numeric: tabular-nums;
+  }
+</style>

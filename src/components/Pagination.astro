@@ -1,0 +1,72 @@
+---
+import { showPageUrl } from '../lib/urls';
+
+interface Props {
+  showSlug: string;
+  currentPage: number;
+  totalPages: number;
+}
+
+const { showSlug, currentPage, totalPages } = Astro.props;
+const pages = Array.from({ length: totalPages }, (_, index) => index + 1);
+---
+
+{totalPages > 1 && (
+  <nav class="pagination" aria-label="Episode pages">
+    {currentPage > 1 && <a href={showPageUrl(showSlug, currentPage - 1)}>Previous</a>}
+    <div class="pagination__pages">
+      {pages.map((page) => (
+        <a
+          class:list={[page === currentPage && 'is-active']}
+          href={showPageUrl(showSlug, page)}
+          aria-current={page === currentPage ? 'page' : undefined}
+        >
+          {page}
+        </a>
+      ))}
+    </div>
+    {currentPage < totalPages && <a href={showPageUrl(showSlug, currentPage + 1)}>Next</a>}
+  </nav>
+)}
+
+<style>
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .pagination__pages {
+    display: flex;
+    gap: 0.7rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .pagination a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.6rem;
+    min-height: 2.6rem;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+  }
+
+  .pagination a.is-active {
+    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
+    color: #fff9f2;
+    border-color: transparent;
+  }
+
+  @media (max-width: 700px) {
+    .pagination {
+      flex-direction: column;
+    }
+  }
+</style>

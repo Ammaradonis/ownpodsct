@@ -1,0 +1,62 @@
+<button class="theme-toggle" type="button" aria-pressed="false" data-theme-toggle>
+  <span>Theme</span>
+  <strong data-theme-label>Auto</strong>
+</button>
+
+<script is:inline>
+  const button = document.querySelector('[data-theme-toggle]');
+  const label = document.querySelector('[data-theme-label]');
+
+  if (button && label) {
+    const readTheme = () =>
+      document.documentElement.dataset.themePreference ||
+      document.documentElement.dataset.theme ||
+      'auto';
+    const applyLabel = () => {
+      const value = readTheme();
+      label.textContent = value.charAt(0).toUpperCase() + value.slice(1);
+      button.setAttribute('aria-pressed', value !== 'auto' ? 'true' : 'false');
+    };
+
+    button.addEventListener('click', () => {
+      const current = readTheme();
+      const next = current === 'light' ? 'dark' : current === 'dark' ? 'auto' : 'light';
+
+      if (next === 'auto') {
+        localStorage.removeItem('theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        document.documentElement.dataset.theme = prefersDark ? 'dark' : 'light';
+        document.documentElement.dataset.themePreference = 'auto';
+      } else {
+        localStorage.setItem('theme', next);
+        document.documentElement.dataset.theme = next;
+        document.documentElement.dataset.themePreference = next;
+      }
+
+      applyLabel();
+    });
+
+    applyLabel();
+  }
+</script>
+
+<style>
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 0.65rem 0.9rem;
+    border: 1px solid var(--color-border);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+    font: inherit;
+    cursor: pointer;
+  }
+
+  strong {
+    font-size: 0.82rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+</style>

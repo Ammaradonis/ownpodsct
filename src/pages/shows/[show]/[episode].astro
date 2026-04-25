@@ -1,0 +1,68 @@
+---
+import AudioPlayer from '../../../components/AudioPlayer.astro';
+import VideoPlayer from '../../../components/VideoPlayer.astro';
+import EpisodeLayout from '../../../layouts/EpisodeLayout.astro';
+import { toIsoDuration } from '../../../lib/formatDuration';
+import { getCategories } from '../../../lib/getCategories';
+import { getAdjacentEpisodes, getPublishedEpisodes } from '../../../lib/getEpisodes';
+import { renderEpisodeNotes } from '../../../lib/renderRichText';
+import { absoluteUrl } from '../../../lib/site';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const episodes = await getPublishedEpisodes();
+  const categoryById = new Map(categories.map((category) => [category.data.id, category]));
+
+  return episodes.flatMap((episode) => {
+    const show = categoryById.get(episode.data.category_id);
+    if (!show) {
+      return [];
+    }
+
+    return {
+      params: {
+        show: show.data.slug,
+        episode: episode.data.slug,
+      },
+      props: {
+        show,
+        episode,
+      },
+    };
+  });
+}
+
+const { show, episode } = Astro.props;
+const { newer, older } = await getAdjacentEpisodes(episode);
+const notesHtml = renderEpisodeNotes(episode.data);
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'PodcastEpisode',
+  name: episode.data.title,
+  datePublished: episode.data.publish_date.slice(0, 10),
+  timeRequired: toIsoDuration(episode.data.duration_seconds),
+  description: episode.data.summary ?? episode.data.description,
+  url: absoluteUrl(`/shows/${show.data.slug}/${episode.data.slug}/`),
+  associatedMedia: {
+    '@type': 'MediaObject',
+    contentUrl: episode.data.media.primary_url,
+  },
+  partOfSeries: {
+    '@type': 'PodcastSeries',
+    name: show.data.title,
+    url: absoluteUrl(`/shows/${show.data.slug}/`),
+  },
+};
+---
+
+<EpisodeLayout
+  show={show}
+  episode={episode}
+  notesHtml={notesHtml}
+  pathname={`/shows/${show.data.slug}/${episode.data.slug}/`}
+  jsonLd={jsonLd}
+  newer={newer}
+  older={older}
+>
+  {episode.data.video?.enabled ? <VideoPlayer episode={episode} /> : <AudioPlayer episode={episode} />}
+</EpisodeLayout>

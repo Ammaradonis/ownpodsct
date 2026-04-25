@@ -1,0 +1,61 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import BaseLayout from './BaseLayout.astro';
+import SubscribeButtons from '../components/SubscribeButtons.astro';
+
+interface Props {
+  show: CollectionEntry<'categories'>;
+  title: string;
+  description: string;
+  pathname: string;
+  keywords?: string[];
+}
+
+const { show, title, description, pathname, keywords = [] } = Astro.props;
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  pathname={pathname}
+  image={show.data.cover_art.url}
+  keywords={keywords}
+>
+  <section class="shell page-hero show-hero reveal">
+    <div class="show-hero__copy">
+      <p class="eyebrow">Show</p>
+      <h1>{show.data.title}</h1>
+      <p class="lede">{show.data.description}</p>
+      <SubscribeButtons show={show} />
+    </div>
+    <img src={show.data.cover_art.url} alt={`${show.data.title} cover art`} class="show-hero__art" />
+  </section>
+  <slot />
+</BaseLayout>
+
+<style>
+  .show-hero {
+    display: grid;
+    grid-template-columns: 1.4fr minmax(0, 0.8fr);
+    gap: 2rem;
+    align-items: center;
+  }
+
+  .show-hero__copy {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .show-hero__art {
+    width: 100%;
+    border-radius: 1.8rem;
+    box-shadow: 0 24px 80px rgb(12 39 46 / 0.24);
+  }
+
+  @media (max-width: 900px) {
+    .show-hero {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

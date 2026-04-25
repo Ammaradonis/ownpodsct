@@ -1,0 +1,74 @@
+{
+  "id": "the-deep-end-antikythera-2026-04-20",
+  "slug": "antikythera-mechanism",
+  "category_id": "the-deep-end",
+  "season": 2,
+  "episode_number": 14,
+  "episode_type": "full",
+  "title": "The Antikythera Mechanism: Diving for Ancient Computers",
+  "subtitle": "How a 1901 sponge-diving accident rewrote computing history.",
+  "description": "Jane Doe sits down with Dr. Maria Katsaros to unpack how the latest Antikythera expedition changed the story of ancient computation.",
+  "description_html": "<p>Jane Doe sits down with Dr. Maria Katsaros to unpack how the latest Antikythera expedition changed the story of ancient computation.</p><p>They trace the 1901 discovery, the engineering hidden inside the mechanism, and what the 2024 dive season revealed about missing fragments.</p>",
+  "summary": "Dr. Katsaros on the 2024 Antikythera expedition.",
+  "publish_date": "2026-04-20T14:00:00Z",
+  "duration_seconds": 3847,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/the-deep-end-s02e14-20260420/the-deep-end-ep14-antikythera.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 61552384,
+    "bitrate_kbps": 128,
+    "sample_rate_hz": 44100,
+    "channels": 2,
+    "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa"
+  },
+  "video": {
+    "enabled": true,
+    "url": "https://archive.org/download/the-deep-end-s02e14-20260420/the-deep-end-ep14-antikythera.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 524288000,
+    "resolution": "1920x1080",
+    "poster_url": "/images/episodes/the-deep-end-antikythera.svg"
+  },
+  "archive_identifier": "the-deep-end-s02e14-20260420",
+  "archive_url": "https://archive.org/details/the-deep-end-s02e14-20260420",
+  "transcript_url": "/transcripts/the-deep-end/antikythera.vtt",
+  "chapters": [
+    {
+      "start_seconds": 0,
+      "title": "Cold open"
+    },
+    {
+      "start_seconds": 127,
+      "title": "Guest introduction"
+    },
+    {
+      "start_seconds": 420,
+      "title": "The 1901 discovery"
+    },
+    {
+      "start_seconds": 1824,
+      "title": "2024 expedition findings"
+    },
+    {
+      "start_seconds": 3320,
+      "title": "What happens next"
+    }
+  ],
+  "show_notes_markdown": "## Links\n- [Antikythera Mechanism Research Project](https://example.org/antikythera)\n- [Recovered gear catalog](https://example.org/catalog)\n\n## Takeaways\n- Ancient instrumentation still challenges modern assumptions.\n- Better underwater imaging changes the pace of scholarship.",
+  "guests": [
+    {
+      "name": "Dr. Maria Katsaros",
+      "role": "Marine Archaeologist",
+      "url": "https://example.org/katsaros"
+    }
+  ],
+  "tags": ["archaeology", "greece", "computing-history"],
+  "explicit": false,
+  "episode_art": {
+    "url": "/images/episodes/the-deep-end-antikythera.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "status": "published"
+}

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="Antikythera Mechanism episode art">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#082032" />
+      <stop offset="100%" stop-color="#2c394b" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="1400" fill="url(#bg)" />
+  <circle cx="700" cy="600" r="270" fill="none" stroke="#ffb703" stroke-width="44" />
+  <circle cx="700" cy="600" r="144" fill="none" stroke="#ffd166" stroke-width="28" />
+  <path d="M700 296V904M396 600H1004M480 380L920 820M920 380L480 820" stroke="#f7c59f" stroke-linecap="round" stroke-width="24" />
+  <text x="112" y="1125" fill="#fdf0d5" font-family="Georgia, serif" font-size="132" font-weight="700">Antikythera</text>
+  <text x="114" y="1248" fill="#fdf0d5" font-family="'Segoe UI', sans-serif" font-size="54" letter-spacing="6">DIVING FOR ANCIENT COMPUTERS</text>
+</svg>

@@ -1,0 +1,82 @@
+---
+import EpisodeCard from '../../../components/EpisodeCard.astro';
+import Pagination from '../../../components/Pagination.astro';
+import TagCloud from '../../../components/TagCloud.astro';
+import ShowLayout from '../../../layouts/ShowLayout.astro';
+import { getCategoryBySlug, getCategories } from '../../../lib/getCategories';
+import { getEpisodesByShow } from '../../../lib/getEpisodes';
+import { siteConfig } from '../../../lib/site';
+import { getTagCounts } from '../../../lib/tags';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  return categories.map((category) => ({
+    params: { show: category.data.slug },
+  }));
+}
+
+const show = await getCategoryBySlug(Astro.params.show as string);
+
+if (!show) {
+  throw new Error(`Show not found for slug ${Astro.params.show}`);
+}
+
+const episodes = await getEpisodesByShow(show.data.id);
+const totalPages = Math.max(1, Math.ceil(episodes.length / siteConfig.pageSize));
+const pageEpisodes = episodes.slice(0, siteConfig.pageSize);
+const tagCloud = getTagCounts([...show.data.tags, ...episodes.flatMap((episode) => episode.data.tags)]).slice(0, 20);
+---
+
+<ShowLayout
+  show={show}
+  title={`${show.data.title} | Archive Signal`}
+  description={show.data.description}
+  pathname={`/shows/${show.data.slug}/`}
+  keywords={[...show.data.tags]}
+>
+  <section class="shell section show-body">
+    <div class="show-body__main">
+      {show.data.description_html && (
+        <article class="card prose reveal" set:html={show.data.description_html} />
+      )}
+      <div class="grid">
+        {pageEpisodes.map((episode) => (
+          <EpisodeCard episode={episode} showSlug={show.data.slug} />
+        ))}
+      </div>
+      <Pagination showSlug={show.data.slug} currentPage={1} totalPages={totalPages} />
+    </div>
+
+    <aside class="show-body__aside">
+      <section class="card reveal">
+        <h2>Host</h2>
+        <p>{show.data.author}</p>
+      </section>
+      <section class="card reveal">
+        <h2>Tags</h2>
+        <TagCloud tags={tagCloud} />
+      </section>
+    </aside>
+  </section>
+</ShowLayout>
+
+<style>
+  .show-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+  }
+
+  .show-body__main,
+  .show-body__aside {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  @media (max-width: 900px) {
+    .show-body {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,53 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  show: CollectionEntry<'categories'>;
+  episodeCount?: number;
+}
+
+const { show, episodeCount = 0 } = Astro.props;
+---
+
+<article class="show-card card reveal">
+  <a class="show-card__media" href={`/shows/${show.data.slug}/`}>
+    <img src={show.data.cover_art.url} alt={`${show.data.title} cover art`} loading="lazy" />
+  </a>
+  <div class="show-card__body">
+    <p class="eyebrow">{episodeCount} published episodes</p>
+    <h2><a href={`/shows/${show.data.slug}/`}>{show.data.title}</a></h2>
+    <p>{show.data.description}</p>
+  </div>
+</article>
+
+<style>
+  .show-card {
+    overflow: hidden;
+  }
+
+  .show-card__media img {
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+    border-radius: calc(var(--radius-card) - 0.45rem);
+  }
+
+  .show-card__body {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 1rem;
+  }
+
+  .eyebrow {
+    margin: 0;
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.75rem;
+  }
+
+  h2 {
+    margin: 0;
+    font-size: clamp(1.5rem, 2vw, 2rem);
+  }
+</style>

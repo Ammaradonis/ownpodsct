@@ -1,0 +1,18 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm test *)",
+      "Bash(ffprobe -version)",
+      "WebFetch(domain:archive.org)",
+      "WebFetch(domain:ia801500.us.archive.org)",
+      "Bash(node scripts/probe-media.mjs \"./src/content/episodes/Repentance 0001.mp3\")",
+      "Bash(ffmpeg -version)",
+      "Bash(ffmpeg -y -i \"src/content/episodes/Repentance 0001.mp3\" -vn -c:a libmp3lame -b:a 128k -ar 44100 -ac 1 -id3v2_version 3 -metadata title=\"My First Official Podcast\" -metadata artist=\"Ammar Alkheder\" -metadata album=\"The Deep End\" -metadata track=\"14\" \"Repentance-Ep1.mp3\")",
+      "Bash(node scripts/probe-media.mjs ./Repentance-Ep1.mp3)",
+      "Bash(curl -sL -o /tmp/check.mp3 \"https://archive.org/download/repentance-ep.-1/Repentance-Ep1.mp3\")",
+      "Bash(node scripts/probe-media.mjs /tmp/check.mp3)",
+      "Read(//tmp/**)",
+      "Bash(xxd)"
+    ]
+  }
+}

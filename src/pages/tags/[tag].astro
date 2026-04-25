@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import EpisodeCard from '../../components/EpisodeCard.astro';
+import ShowCard from '../../components/ShowCard.astro';
+import { getCategories } from '../../lib/getCategories';
+import { getPublishedEpisodes } from '../../lib/getEpisodes';
+import { slugifyTag } from '../../lib/tags';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const episodes = await getPublishedEpisodes();
+  const tags = new Set([
+    ...categories.flatMap((category) => category.data.tags),
+    ...episodes.flatMap((episode) => episode.data.tags),
+  ]);
+
+  return [...tags].map((tag) => ({
+    params: { tag: slugifyTag(tag) },
+    props: { tag },
+  }));
+}
+
+const { tag } = Astro.props;
+const categories = await getCategories();
+const episodes = await getPublishedEpisodes();
+const matchingShows = categories.filter((category) => category.data.tags.includes(tag));
+const matchingEpisodes = episodes.filter((episode) => episode.data.tags.includes(tag));
+const categoryById = new Map(categories.map((category) => [category.data.id, category]));
+---
+
+<BaseLayout
+  title={`${tag} | Archive Signal`}
+  description={`Episodes and shows tagged ${tag}.`}
+  pathname={`/tags/${slugifyTag(tag)}/`}
+  keywords={[tag]}
+>
+  <section class="shell page-hero reveal">
+    <p class="eyebrow">Tag</p>
+    <h1>{tag}</h1>
+    <p class="lede">
+      A cross-show view for the topics that recur across the network.
+    </p>
+  </section>
+
+  {matchingShows.length > 0 && (
+    <section class="shell section">
+      <div class="section-heading">
+        <h2>Shows</h2>
+      </div>
+      <div class="grid grid--shows">
+        {matchingShows.map((show) => (
+          <ShowCard show={show} />
+        ))}
+      </div>
+    </section>
+  )}
+
+  <section class="shell section">
+    <div class="section-heading">
+      <h2>Episodes</h2>
+    </div>
+    <div class="grid grid--episodes">
+      {matchingEpisodes.map((episode) => {
+        const show = categoryById.get(episode.data.category_id);
+        return show ? (
+          <EpisodeCard episode={episode} showSlug={show.data.slug} showTitle={show.data.title} />
+        ) : null;
+      })}
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-heading {
+    margin-bottom: 1rem;
+  }
+</style>

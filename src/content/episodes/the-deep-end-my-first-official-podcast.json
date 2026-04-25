@@ -1,0 +1,33 @@
+{
+  "id": "the-deep-end-my-first-official-podcast-2026-04-25",
+  "slug": "my-first-official-podcast",
+  "category_id": "the-deep-end",
+  "season": 2,
+  "episode_number": 14,
+  "episode_type": "full",
+  "title": "My First Official Podcast",
+  "subtitle": "Mr. Al-Green's Repentance",
+  "description": "Mr. Al-Green's Repentance.",
+  "description_html": "<p>Mr. Al-Green's Repentance.</p>",
+  "summary": "Mr. Al-Green's Repentance.",
+  "publish_date": "2026-04-24T15:00:00Z",
+  "duration_seconds": 1802,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/repentance-ep.-1/Repentance-Ep1.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 14420379,
+    "bitrate_kbps": 64,
+    "sample_rate_hz": 48000,
+    "channels": 1,
+    "sha256": "3b77db8dcf6ac3f967c7632e8f5cfe6070c46ed7daad04ba6b98e56d1d35a401"
+  },
+  "archive_identifier": "repentance-ep.-1",
+  "archive_url": "https://archive.org/details/repentance-ep.-1",
+  "chapters": [],
+  "show_notes_markdown": "## Links\n- [Listen on Archive.org](https://archive.org/details/repentance-ep.-1)",
+  "guests": [],
+  "tags": [],
+  "explicit": false,
+  "status": "published"
+}

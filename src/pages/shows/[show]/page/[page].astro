@@ -1,0 +1,92 @@
+---
+import EpisodeCard from '../../../../components/EpisodeCard.astro';
+import Pagination from '../../../../components/Pagination.astro';
+import TagCloud from '../../../../components/TagCloud.astro';
+import ShowLayout from '../../../../layouts/ShowLayout.astro';
+import { getCategories } from '../../../../lib/getCategories';
+import { getPublishedEpisodes } from '../../../../lib/getEpisodes';
+import { siteConfig } from '../../../../lib/site';
+import { getTagCounts } from '../../../../lib/tags';
+
+export async function getStaticPaths() {
+  const categories = await getCategories();
+  const episodes = await getPublishedEpisodes();
+
+  return categories.flatMap((category) => {
+    const showEpisodes = episodes.filter((episode) => episode.data.category_id === category.data.id);
+    const totalPages = Math.ceil(showEpisodes.length / siteConfig.pageSize);
+
+    return Array.from({ length: Math.max(totalPages - 1, 0) }, (_, index) => {
+      const pageNumber = index + 2;
+      const start = (pageNumber - 1) * siteConfig.pageSize;
+      const pageEpisodes = showEpisodes.slice(start, start + siteConfig.pageSize);
+
+      return {
+        params: {
+          show: category.data.slug,
+          page: String(pageNumber),
+        },
+        props: {
+          show: category,
+          pageEpisodes,
+          totalPages,
+          pageNumber,
+        },
+      };
+    });
+  });
+}
+
+const { show, pageEpisodes, totalPages, pageNumber } = Astro.props;
+const allTags = getTagCounts([
+  ...show.data.tags,
+  ...pageEpisodes.flatMap((episode) => episode.data.tags),
+]).slice(0, 20);
+---
+
+<ShowLayout
+  show={show}
+  title={`${show.data.title} | Page ${pageNumber} | Archive Signal`}
+  description={show.data.description}
+  pathname={`/shows/${show.data.slug}/page/${pageNumber}/`}
+  keywords={[...show.data.tags]}
+>
+  <section class="shell section show-body">
+    <div class="show-body__main">
+      <div class="grid">
+        {pageEpisodes.map((episode) => (
+          <EpisodeCard episode={episode} showSlug={show.data.slug} />
+        ))}
+      </div>
+      <Pagination showSlug={show.data.slug} currentPage={pageNumber} totalPages={totalPages} />
+    </div>
+
+    <aside class="show-body__aside">
+      <section class="card reveal">
+        <h2>Tag cloud</h2>
+        <TagCloud tags={allTags} />
+      </section>
+    </aside>
+  </section>
+</ShowLayout>
+
+<style>
+  .show-body {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+  }
+
+  .show-body__main,
+  .show-body__aside {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  @media (max-width: 900px) {
+    .show-body {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

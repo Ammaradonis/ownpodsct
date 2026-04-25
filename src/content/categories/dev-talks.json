@@ -1,0 +1,42 @@
+{
+  "id": "dev-talks",
+  "title": "Dev Talks",
+  "slug": "dev-talks",
+  "description": "Sharp conversations about systems engineering, tooling, and the habits behind reliable software.",
+  "description_html": "<p>Sharp conversations about systems engineering, tooling, and the habits behind reliable software. Each episode translates tradeoffs into practical decisions for teams shipping production systems.</p>",
+  "author": "Riley Stone",
+  "owner": {
+    "name": "Riley Stone",
+    "email": "riley@example.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["Technology", "Technology:Software How-To"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/dev-talks-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#fb7185",
+  "website_url": "https://podcast.example.com/shows/dev-talks/",
+  "tags": ["developer-tools", "systems", "engineering-culture"],
+  "type": "episodic",
+  "copyright": "© 2026 Riley Stone",
+  "created_at": "2026-02-01T00:00:00Z",
+  "featured": true,
+  "sort_order": 2,
+  "podcast_guid": "1a540683-8ca4-43f2-8755-52616e0b3c31",
+  "podcast_locked": false,
+  "subscribe_links": {
+    "apple": "https://podcasts.apple.com/us/podcast/dev-talks/id0000000001",
+    "spotify": "https://open.spotify.com/show/5exampledevtalks",
+    "rss": "https://podcast.example.com/feeds/dev-talks.xml",
+    "archive": "https://archive.org/details/@archive-signal"
+  },
+  "funding": [
+    {
+      "url": "https://github.com/sponsors/archive-signal",
+      "text": "Sponsor the tooling"
+    }
+  ]
+}

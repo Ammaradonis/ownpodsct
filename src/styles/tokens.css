@@ -1,0 +1,33 @@
+:root {
+  color-scheme: light;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Georgia, serif;
+  --font-body: "Avenir Next", "Segoe UI", "Helvetica Neue", sans-serif;
+
+  --color-page: #f4ece1;
+  --color-surface: #fff8ef;
+  --color-surface-strong: #fff2df;
+  --color-text: #1c2a31;
+  --color-muted: #5e6e77;
+  --color-border: #cfbfa8;
+  --color-accent: #0d5c63;
+  --color-accent-soft: #ff7f51;
+  --color-focus: #ff9f1c;
+  --shadow-card: 0 20px 60px rgb(15 35 47 / 0.12);
+
+  --shell: min(1160px, calc(100vw - 2rem));
+  --radius-card: 1.6rem;
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  --color-page: #09131a;
+  --color-surface: #101d27;
+  --color-surface-strong: #142634;
+  --color-text: #f5ecde;
+  --color-muted: #a3b6c1;
+  --color-border: #274152;
+  --color-accent: #27c0b7;
+  --color-accent-soft: #ff8b61;
+  --color-focus: #ffd166;
+  --shadow-card: 0 24px 70px rgb(0 0 0 / 0.35);
+}

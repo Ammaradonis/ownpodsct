@@ -1,0 +1,267 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import BaseLayout from './BaseLayout.astro';
+import { formatDate } from '../lib/formatDate';
+import { formatDuration } from '../lib/formatDuration';
+import { slugifyTag } from '../lib/tags';
+
+interface Props {
+  show: CollectionEntry<'categories'>;
+  episode: CollectionEntry<'episodes'>;
+  notesHtml: string;
+  pathname: string;
+  jsonLd: Record<string, unknown>;
+  newer?: CollectionEntry<'episodes'>;
+  older?: CollectionEntry<'episodes'>;
+}
+
+const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props;
+---
+
+<BaseLayout
+  title={`${episode.data.title} | ${show.data.title}`}
+  description={episode.data.summary ?? episode.data.description}
+  pathname={pathname}
+  image={episode.data.episode_art?.url ?? show.data.cover_art.url}
+  audioUrl={episode.data.media.primary_url}
+  type="article"
+  keywords={[...show.data.tags, ...episode.data.tags]}
+  jsonLd={jsonLd}
+  preconnectArchive
+>
+  <article class="shell episode-page">
+    <header class="episode-header reveal">
+      <p class="eyebrow">{show.data.title}</p>
+      <h1>{episode.data.title}</h1>
+      <p class="lede">{episode.data.subtitle ?? episode.data.description}</p>
+      <div class="episode-header__meta">
+        <span>{formatDate(episode.data.publish_date)}</span>
+        <span>{formatDuration(episode.data.duration_seconds)}</span>
+        <span>{episode.data.episode_type}</span>
+      </div>
+    </header>
+
+    <slot />
+
+    <section class="episode-grid">
+      <section class="card reveal">
+        <h2>Show notes</h2>
+        <div class="prose" set:html={notesHtml} />
+      </section>
+
+      <aside class="episode-sidebar">
+        {episode.data.episode_art && (
+          <img
+            class="episode-art card"
+            src={episode.data.episode_art.url}
+            alt={`${episode.data.title} episode art`}
+          />
+        )}
+
+        {episode.data.guests.length > 0 && (
+          <section class="card reveal">
+            <h2>Guests</h2>
+            <ul class="stack-list">
+              {episode.data.guests.map((guest) => (
+                <li>
+                  {guest.url ? <a href={guest.url}>{guest.name}</a> : guest.name}
+                  {guest.role && <small>{guest.role}</small>}
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        {episode.data.tags.length > 0 && (
+          <section class="card reveal">
+            <h2>Tags</h2>
+            <ul class="pill-list">
+              {episode.data.tags.map((tag) => (
+                <li>
+                  <a href={`/tags/${slugifyTag(tag)}/`}>{tag}</a>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )}
+
+        <section class="card reveal">
+          <h2>Share</h2>
+          <div class="share-actions">
+            <button type="button" data-share-link>Share episode</button>
+            <button type="button" data-copy-link>Copy link</button>
+          </div>
+        </section>
+
+        {episode.data.transcript_url && (
+          <details class="card reveal transcript-panel" data-transcript-panel data-transcript-url={episode.data.transcript_url}>
+            <summary>Load transcript</summary>
+            <pre data-transcript-output>Transcript loads on demand.</pre>
+          </details>
+        )}
+      </aside>
+    </section>
+
+    {(newer || older) && (
+      <nav class="episode-nav reveal" aria-label="Episode navigation">
+        {newer ? (
+          <a class="card" href={`/shows/${show.data.slug}/${newer.data.slug}/`}>
+            <span>Newer</span>
+            <strong>{newer.data.title}</strong>
+          </a>
+        ) : (
+          <span />
+        )}
+        {older ? (
+          <a class="card" href={`/shows/${show.data.slug}/${older.data.slug}/`}>
+            <span>Older</span>
+            <strong>{older.data.title}</strong>
+          </a>
+        ) : (
+          <span />
+        )}
+      </nav>
+    )}
+  </article>
+
+  <script is:inline>
+    const pathname = window.location.pathname;
+    const canonical = `${window.location.origin}${pathname}`;
+
+    document.querySelector('[data-copy-link]')?.addEventListener('click', async () => {
+      await navigator.clipboard.writeText(canonical);
+    });
+
+    document.querySelector('[data-share-link]')?.addEventListener('click', async () => {
+      if (navigator.share) {
+        await navigator.share({
+          title: document.title,
+          url: canonical,
+        });
+        return;
+      }
+      await navigator.clipboard.writeText(canonical);
+    });
+
+    const transcriptPanel = document.querySelector('[data-transcript-panel]');
+    if (transcriptPanel) {
+      transcriptPanel.addEventListener('toggle', async (event) => {
+        const panel = event.currentTarget;
+        if (!panel.open || panel.dataset.loaded === 'true') {
+          return;
+        }
+        const output = panel.querySelector('[data-transcript-output]');
+        output.textContent = 'Loading transcript...';
+
+        try {
+          const response = await fetch(panel.dataset.transcriptUrl);
+          output.textContent = await response.text();
+          panel.dataset.loaded = 'true';
+        } catch (error) {
+          output.textContent = `Transcript failed to load: ${error.message}`;
+        }
+      });
+    }
+  </script>
+</BaseLayout>
+
+<style>
+  .episode-page {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .episode-header {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .episode-header__meta,
+  .pill-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.7rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .pill-list a {
+    display: inline-flex;
+    padding: 0.4rem 0.85rem;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+  }
+
+  .episode-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.5fr) minmax(18rem, 0.85fr);
+    gap: 1.5rem;
+  }
+
+  .episode-sidebar {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+  }
+
+  .stack-list {
+    display: grid;
+    gap: 0.9rem;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+  }
+
+  .stack-list small {
+    display: block;
+    color: var(--color-muted);
+  }
+
+  .share-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .share-actions button {
+    font: inherit;
+    padding: 0.75rem 0.95rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+    cursor: pointer;
+  }
+
+  .episode-art {
+    width: 100%;
+  }
+
+  .episode-nav {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1rem;
+  }
+
+  .episode-nav span {
+    color: var(--color-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.8rem;
+  }
+
+  .transcript-panel pre {
+    white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+  }
+
+  @media (max-width: 900px) {
+    .episode-grid,
+    .episode-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

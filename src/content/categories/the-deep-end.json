@@ -1,0 +1,42 @@
+{
+  "id": "the-deep-end",
+  "title": "The Deep End",
+  "slug": "the-deep-end",
+  "description": "Long-form interviews with underwater archaeologists and expedition leaders.",
+  "description_html": "<p>Long-form interviews with underwater archaeologists and expedition leaders. Expect field notes, excavation stories, and the science behind submerged history.</p>",
+  "author": "Jane Doe",
+  "owner": {
+    "name": "Jane Doe",
+    "email": "jane@example.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["Science", "Science:Natural Sciences"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/the-deep-end-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#0d5c63",
+  "website_url": "https://podcast.example.com/shows/the-deep-end/",
+  "tags": ["archaeology", "ocean", "science"],
+  "type": "episodic",
+  "copyright": "© 2026 Jane Doe",
+  "created_at": "2026-01-15T00:00:00Z",
+  "featured": true,
+  "sort_order": 1,
+  "podcast_guid": "41ab2a23-a48b-4fcb-b0c3-44350dcba1a5",
+  "podcast_locked": false,
+  "subscribe_links": {
+    "apple": "https://podcasts.apple.com/us/podcast/the-deep-end/id0000000000",
+    "spotify": "https://open.spotify.com/show/3exampledeepend",
+    "rss": "https://podcast.example.com/feeds/the-deep-end.xml",
+    "archive": "https://archive.org/details/@archive-signal"
+  },
+  "funding": [
+    {
+      "url": "https://ko-fi.com/archive-signal",
+      "text": "Support the dives"
+    }
+  ]
+}

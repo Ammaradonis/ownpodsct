@@ -1,0 +1,40 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+import { feedUrl } from '../lib/urls';
+
+interface Props {
+  show: CollectionEntry<'categories'>;
+}
+
+const { show } = Astro.props;
+const links = show.data.subscribe_links ?? {};
+const rssLink = links.rss ?? feedUrl(show.data.slug);
+---
+
+<div class="subscribe-buttons">
+  {links.apple && <a href={links.apple} rel="noreferrer">Apple Podcasts</a>}
+  {links.spotify && <a href={links.spotify} rel="noreferrer">Spotify</a>}
+  <a href={rssLink}>RSS</a>
+  {links.archive && <a href={links.archive} rel="noreferrer">Archive.org</a>}
+</div>
+
+<style>
+  .subscribe-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+  }
+
+  .subscribe-buttons a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.8rem 1rem;
+    border-radius: 999px;
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+    color: var(--color-text);
+    font-weight: 600;
+  }
+</style>
