@@ -1,0 +1,31 @@
+{
+  "id": "legacy-voice-notes",
+  "title": "Legacy Voice Notes",
+  "slug": "legacy-voice-notes",
+  "description": "Short spoken recordings, remembered voices, and preserved notes meant to outlast the moment they were captured.",
+  "description_html": "<p>Short spoken recordings, remembered voices, and preserved notes meant to outlast the moment they were captured.</p>",
+  "author": "Ammar Alkheder",
+  "owner": {
+    "name": "Ammar Alkheder",
+    "email": "ammar.webalchemist@gmail.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["Music"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/legacy-voice-notes-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#8f6d57",
+  "tags": ["legacy-voice-notes"],
+  "type": "episodic",
+  "copyright": "© 2026 Ammar Alkheder",
+  "created_at": "2026-04-25T00:00:00Z",
+  "featured": false,
+  "sort_order": 6,
+  "podcast_guid": "c6a67f90-a5b8-41ce-b821-f2e645a32e19",
+  "podcast_locked": false,
+  "subscribe_links": {},
+  "funding": []
+}

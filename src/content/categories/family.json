@@ -1,0 +1,31 @@
+{
+  "id": "family",
+  "title": "Family",
+  "slug": "family",
+  "description": "Conversations about family life, the small things that hold a household together, and the lessons that travel between generations.",
+  "description_html": "<p>Conversations about family life, the small things that hold a household together, and the lessons that travel between generations.</p>",
+  "author": "Ammar Alkheder",
+  "owner": {
+    "name": "Ammar Alkheder",
+    "email": "ammar.webalchemist@gmail.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["Kids & Family"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/family-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#fb923c",
+  "tags": ["family"],
+  "type": "episodic",
+  "copyright": "© 2026 Ammar Alkheder",
+  "created_at": "2026-04-25T00:00:00Z",
+  "featured": false,
+  "sort_order": 4,
+  "podcast_guid": "8693d7cf-d064-4c8d-8b31-b3132ab79b9e",
+  "podcast_locked": false,
+  "subscribe_links": {},
+  "funding": []
+}

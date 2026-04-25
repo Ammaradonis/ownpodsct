@@ -30,8 +30,7 @@
   "subscribe_links": {
     "apple": "https://podcasts.apple.com/us/podcast/the-deep-end/id0000000000",
     "spotify": "https://open.spotify.com/show/3exampledeepend",
-    "rss": "https://podcast.example.com/feeds/the-deep-end.xml",
-    "archive": "https://archive.org/details/@archive-signal"
+    "rss": "https://podcast.example.com/feeds/the-deep-end.xml"
   },
   "funding": [
     {

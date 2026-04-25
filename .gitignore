@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .netlify/
+.archive-cache/
 playwright-report/
 test-results/
 coverage/

@@ -12,7 +12,9 @@
       "Bash(curl -sL -o /tmp/check.mp3 \"https://archive.org/download/repentance-ep.-1/Repentance-Ep1.mp3\")",
       "Bash(node scripts/probe-media.mjs /tmp/check.mp3)",
       "Read(//tmp/**)",
-      "Bash(xxd)"
+      "Bash(xxd)",
+      "Bash(node *)",
+      "Bash(curl -sI \"https://archive.org/download/20260105-165205/IMG-20250731-WA0005\\(1\\).jpg\")"
     ]
   }
 }

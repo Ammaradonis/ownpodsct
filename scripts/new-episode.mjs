@@ -6,6 +6,33 @@ import { parseArgs } from 'node:util';
 import { loadCategories } from './lib/content.mjs';
 import { probeMedia, slugify } from './lib/media.mjs';
 
+const MIME_BY_EXTENSION = {
+  '.aac': 'audio/aac',
+  '.flac': 'audio/flac',
+  '.gif': 'image/gif',
+  '.jpeg': 'image/jpeg',
+  '.jpg': 'image/jpeg',
+  '.m4a': 'audio/mp4',
+  '.m4v': 'video/x-m4v',
+  '.mov': 'video/quicktime',
+  '.mp3': 'audio/mpeg',
+  '.mp4': 'video/mp4',
+  '.oga': 'audio/ogg',
+  '.ogg': 'audio/ogg',
+  '.png': 'image/png',
+  '.wav': 'audio/wav',
+  '.webm': 'video/webm',
+};
+
+function inferMimeType(extension) {
+  return MIME_BY_EXTENSION[extension] ?? 'application/octet-stream';
+}
+
+function inferMediaType(extension) {
+  const mimeType = inferMimeType(extension);
+  return mimeType.split('/')[0] || 'application';
+}
+
 const {
   values: {
     show,
@@ -56,9 +83,9 @@ const dateStamp = date.toISOString().slice(0, 10);
 const compactDate = date.toISOString().slice(0, 10).replaceAll('-', '');
 const mediaInfo = await probeMedia(mediaPath);
 const extension = extname(mediaPath).toLowerCase();
-const isVideo = extension === '.mp4';
-const mediaType = isVideo ? 'video' : 'audio';
-const mimeType = isVideo ? 'video/mp4' : 'audio/mpeg';
+const mimeType = inferMimeType(extension);
+const mediaType = inferMediaType(extension);
+const isVideo = mediaType === 'video';
 const archiveIdentifier =
   season && episodeNumber
     ? `${category.slug}-s${String(Number(season)).padStart(2, '0')}e${String(Number(episodeNumber)).padStart(2, '0')}-${compactDate}`
@@ -93,7 +120,7 @@ const payload = {
         video: {
           enabled: true,
           url: `https://archive.org/download/${archiveIdentifier}/${basename(mediaPath)}`,
-          mime_type: 'video/mp4',
+          mime_type: mimeType,
           file_size_bytes: mediaInfo.fileSizeBytes,
           resolution:
             mediaInfo.width && mediaInfo.height ? `${mediaInfo.width}x${mediaInfo.height}` : undefined,

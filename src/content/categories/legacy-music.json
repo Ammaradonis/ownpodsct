@@ -1,0 +1,31 @@
+{
+  "id": "legacy-music",
+  "title": "Legacy Music",
+  "slug": "legacy-music",
+  "description": "Songs, voices, and recordings passed down across generations, preserved with context and care.",
+  "description_html": "<p>Songs, voices, and recordings passed down across generations, preserved with context and care.</p>",
+  "author": "Ammar Alkheder",
+  "owner": {
+    "name": "Ammar Alkheder",
+    "email": "ammar.webalchemist@gmail.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["Music"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/legacy-music-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#b67a3c",
+  "tags": ["legacy-music"],
+  "type": "episodic",
+  "copyright": "© 2026 Ammar Alkheder",
+  "created_at": "2026-04-25T00:00:00Z",
+  "featured": false,
+  "sort_order": 5,
+  "podcast_guid": "6bb34496-b6ee-47e8-9d84-3e858c61ebff",
+  "podcast_locked": false,
+  "subscribe_links": {},
+  "funding": []
+}

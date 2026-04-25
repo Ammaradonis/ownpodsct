@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="Legacy Music cover art">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#251711" />
+      <stop offset="100%" stop-color="#0e0a08" />
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#f0c98e" />
+      <stop offset="100%" stop-color="#b67a3c" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="1400" fill="url(#bg)" />
+  <circle cx="700" cy="700" r="350" fill="none" stroke="rgba(240,201,142,0.18)" stroke-width="28" />
+  <circle cx="700" cy="700" r="165" fill="none" stroke="rgba(240,201,142,0.32)" stroke-width="18" />
+  <circle cx="700" cy="700" r="42" fill="#f0c98e" />
+  <path d="M805 360v405c0 83-58 136-147 136-72 0-123-39-123-95 0-54 45-89 109-89 34 0 63 8 91 23V475l300-69v270c0 83-58 136-147 136-72 0-123-39-123-95 0-54 45-89 109-89 34 0 63 8 91 23V360z" fill="rgba(240,201,142,0.14)" stroke="#f0c98e" stroke-width="12" stroke-linejoin="round" />
+  <text x="114" y="1120" fill="url(#title)" font-family="'Trebuchet MS', sans-serif" font-size="214" font-weight="700">Legacy Music</text>
+  <text x="120" y="1212" fill="#dcc1a1" font-family="'Segoe UI', sans-serif" font-size="44" letter-spacing="10">ARCHIVED SONGS AND VOICES</text>
+</svg>

@@ -1,0 +1,33 @@
+{
+  "id": "dev-talks-kab-ibn-malik-repentance-egyptian-sheikh-vienna-2026-04-25",
+  "slug": "kab-ibn-malik-repentance-egyptian-sheikh-vienna",
+  "category_id": "dev-talks",
+  "season": 1,
+  "episode_number": 4,
+  "episode_type": "full",
+  "title": "Ka'b ibn Malik Repentance - Egyptian Sheikh - Vienna",
+  "subtitle": "A full-length audio release published from the Internet Archive source.",
+  "description": "A published Dev Talks episode sourced from the Internet Archive release \"Jurisprudence Ep. 1\" and titled \"Ka'b ibn Malik Repentance - Egyptian Sheikh - Vienna\".",
+  "description_html": "<p>A published Dev Talks episode sourced from the Internet Archive release &ldquo;Jurisprudence Ep. 1&rdquo; and titled &ldquo;Ka'b ibn Malik Repentance - Egyptian Sheikh - Vienna&rdquo;.</p>",
+  "summary": "Ka'b ibn Malik repentance audio published under Dev Talks.",
+  "publish_date": "2026-04-25T10:00:00Z",
+  "duration_seconds": 8253,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/jurisprudence-ep.-1/Jurisprudence%20Ep.%201.m4a",
+    "mirror_url": "https://ia600108.us.archive.org/31/items/jurisprudence-ep.-1/Jurisprudence%20Ep.%201.m4a",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 134668432,
+    "bitrate_kbps": 131,
+    "sample_rate_hz": 48000,
+    "channels": 1
+  },
+  "archive_identifier": "jurisprudence-ep.-1",
+  "archive_url": "https://archive.org/details/jurisprudence-ep.-1",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Internet Archive item](https://archive.org/details/jurisprudence-ep.-1)",
+  "guests": [],
+  "tags": ["kab-ibn-malik", "repentance", "vienna"],
+  "explicit": false,
+  "status": "published"
+}

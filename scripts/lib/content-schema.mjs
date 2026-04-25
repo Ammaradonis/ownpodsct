@@ -1,4 +1,4 @@
-import { z } from 'zod';
+import { z } from 'astro/zod';
 
 const hexColorSchema = z.string().regex(/^#[0-9a-fA-F]{6}$/);
 const relativeOrAbsoluteUrlSchema = z
@@ -6,6 +6,9 @@ const relativeOrAbsoluteUrlSchema = z
   .refine((value) => value.startsWith('/') || /^https?:\/\//.test(value), {
     message: 'Expected a root-relative or absolute URL.',
   });
+const mimeTypeSchema = z.string().regex(/^[a-z0-9!#$&^_.+-]+\/[a-z0-9!#$&^_.+-]+$/i, {
+  message: 'Expected a valid MIME type.',
+});
 
 const subscribeLinksSchema = z
   .object({
@@ -70,10 +73,10 @@ export const guestSchema = z.object({
 });
 
 export const mediaSchema = z.object({
-  type: z.enum(['audio', 'video']),
+  type: z.string().min(1),
   primary_url: z.string().url().startsWith('https://archive.org/'),
   mirror_url: z.string().url().optional(),
-  mime_type: z.enum(['audio/mpeg', 'audio/mp4', 'video/mp4']),
+  mime_type: mimeTypeSchema,
   file_size_bytes: z.number().int().positive(),
   bitrate_kbps: z.number().int().positive().optional(),
   sample_rate_hz: z.number().int().positive().optional(),
@@ -85,10 +88,18 @@ export const videoSchema = z
   .object({
     enabled: z.boolean(),
     url: z.string().url().optional(),
-    mime_type: z.enum(['video/mp4']).optional(),
+    mime_type: mimeTypeSchema.optional(),
     file_size_bytes: z.number().int().positive().optional(),
     resolution: z.string().regex(/^\d+x\d+$/).optional(),
     poster_url: relativeOrAbsoluteUrlSchema.optional(),
+  })
+  .optional();
+
+export const archiveGallerySchema = z
+  .object({
+    enabled: z.boolean(),
+    title: z.string().min(1).max(255).optional(),
+    description: z.string().max(4000).optional(),
   })
   .optional();
 
@@ -114,6 +125,7 @@ export const episodeSchema = z.object({
   transcript_url: relativeOrAbsoluteUrlSchema.optional(),
   chapters: z.array(chapterSchema).default([]),
   show_notes_markdown: z.string().optional(),
+  archive_gallery: archiveGallerySchema,
   guests: z.array(guestSchema).default([]),
   tags: z.array(z.string().min(1)).default([]),
   explicit: z.boolean().default(false),

@@ -5,6 +5,11 @@ import BaseLayout from './BaseLayout.astro';
 import { formatDate } from '../lib/formatDate';
 import { formatDuration } from '../lib/formatDuration';
 import { slugifyTag } from '../lib/tags';
+import {
+  loadArchiveGallery,
+  ARCHIVE_TEXT_PREVIEW_LIMIT,
+  type RenderedArchiveFile,
+} from '../lib/archiveGallery';
 
 interface Props {
   show: CollectionEntry<'categories'>;
@@ -17,6 +22,38 @@ interface Props {
 }
 
 const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props;
+
+const formatBytes = (value?: string) => {
+  const bytes = Number(value);
+  if (!Number.isFinite(bytes) || bytes <= 0) {
+    return 'Unknown size';
+  }
+  const units = ['B', 'KB', 'MB', 'GB'];
+  let size = bytes;
+  let index = 0;
+  while (size >= 1024 && index < units.length - 1) {
+    size /= 1024;
+    index += 1;
+  }
+  return `${size.toFixed(size >= 100 || index === 0 ? 0 : 1)} ${units[index]}`;
+};
+
+let archiveFiles: RenderedArchiveFile[] = [];
+let archiveError: string | null = null;
+let archiveTotalCount = 0;
+
+const galleryEnabled = episode.data.archive_gallery?.enabled === true;
+const archiveId = episode.data.archive_identifier;
+
+if (galleryEnabled && archiveId) {
+  try {
+    const result = await loadArchiveGallery(archiveId);
+    archiveFiles = result.files;
+    archiveTotalCount = result.totalCount;
+  } catch (err) {
+    archiveError = (err as Error).message;
+  }
+}
 ---
 
 <BaseLayout
@@ -45,10 +82,66 @@ const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props
     <slot />
 
     <section class="episode-grid">
-      <section class="card reveal">
-        <h2>Show notes</h2>
-        <div class="prose" set:html={notesHtml} />
-      </section>
+      {galleryEnabled ? (
+        <section class="card reveal archive-gallery">
+          <div class="archive-gallery__header">
+            <h2>{episode.data.archive_gallery?.title ?? 'Archive Gallery'}</h2>
+            {archiveError ? (
+              <p class="archive-gallery__status">
+                Archive gallery failed to load at build time: {archiveError}
+              </p>
+            ) : (
+              <p class="archive-gallery__status">
+                Displaying {archiveFiles.length} of {archiveTotalCount} files.
+              </p>
+            )}
+          </div>
+
+          {archiveFiles.length > 0 && (
+            <div class="archive-gallery__grid">
+              {archiveFiles.map(({ file, url, kind, textContent, textTruncated }) => (
+                <article class="archive-file">
+                  <h3 class="archive-file__title">{file.name}</h3>
+                  <p class="archive-file__meta">
+                    {file.format ?? 'Unknown'} | {formatBytes(file.size)} | {file.source ?? 'unknown source'}
+                  </p>
+
+                  {kind === 'image' && (
+                    <img class="archive-file__image" src={url} alt={file.name} loading="lazy" />
+                  )}
+
+                  {kind === 'video' && (
+                    <video class="archive-file__video" src={url} controls preload="metadata" playsinline />
+                  )}
+
+                  {kind === 'text' && (
+                    <>
+                      <pre class="archive-file__text">{textContent}</pre>
+                      {textTruncated && (
+                        <p class="archive-file__meta">
+                          Preview truncated at {ARCHIVE_TEXT_PREVIEW_LIMIT.toLocaleString()} characters.
+                        </p>
+                      )}
+                    </>
+                  )}
+
+                  {kind === 'binary' && (
+                    <div class="archive-file__fallback">
+                      <strong>Binary file (no inline preview).</strong>
+                      <span>This file is part of the archive item and is listed here as a visible item card.</span>
+                    </div>
+                  )}
+                </article>
+              ))}
+            </div>
+          )}
+        </section>
+      ) : (
+        <section class="card reveal">
+          <h2>Show notes</h2>
+          <div class="prose" set:html={notesHtml} />
+        </section>
+      )}
 
       <aside class="episode-sidebar">
         {episode.data.episode_art && (
@@ -246,6 +339,77 @@ const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props
     gap: 1rem;
   }
 
+  .archive-gallery {
+    display: grid;
+    gap: 1rem;
+  }
+
+  .archive-gallery__header {
+    display: grid;
+    gap: 0.5rem;
+  }
+
+  .archive-gallery__header p,
+  .archive-gallery__status,
+  .archive-file__meta,
+  .archive-file__fallback span {
+    color: var(--color-muted);
+  }
+
+  .archive-gallery__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(18rem, 1fr));
+    gap: 1rem;
+  }
+
+  .archive-file {
+    display: grid;
+    gap: 0.75rem;
+    padding: 1rem;
+    border-radius: calc(var(--radius-card) - 0.35rem);
+    border: 1px solid color-mix(in srgb, var(--color-border) 75%, transparent);
+    background: color-mix(in srgb, var(--color-surface) 92%, white 8%);
+    overflow: hidden;
+  }
+
+  .archive-file__title {
+    margin: 0;
+    font-size: 1rem;
+    word-break: break-word;
+  }
+
+  .archive-file__meta {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+
+  .archive-file__image,
+  .archive-file__video {
+    width: 100%;
+    border-radius: 0.85rem;
+  }
+
+  .archive-file__text {
+    margin: 0;
+    max-height: 20rem;
+    overflow: auto;
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+    background: color-mix(in srgb, var(--color-surface) 82%, black 18%);
+    color: var(--color-text);
+    white-space: pre-wrap;
+    font-family: ui-monospace, SFMono-Regular, Consolas, monospace;
+    font-size: 0.84rem;
+  }
+
+  .archive-file__fallback {
+    display: grid;
+    gap: 0.4rem;
+    padding: 0.85rem;
+    border-radius: 0.85rem;
+    background: color-mix(in srgb, var(--color-surface) 88%, white 12%);
+  }
+
   .episode-nav span {
     color: var(--color-muted);
     text-transform: uppercase;
@@ -261,6 +425,10 @@ const { show, episode, notesHtml, pathname, jsonLd, newer, older } = Astro.props
   @media (max-width: 900px) {
     .episode-grid,
     .episode-nav {
+      grid-template-columns: 1fr;
+    }
+
+    .archive-gallery__grid {
       grid-template-columns: 1fr;
     }
   }

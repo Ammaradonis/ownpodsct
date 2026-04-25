@@ -8,6 +8,9 @@ export default defineConfig({
   build: {
     format: 'directory',
   },
+  devToolbar: {
+    enabled: false,
+  },
   vite: {
     css: {
       postcss: './postcss.config.cjs',

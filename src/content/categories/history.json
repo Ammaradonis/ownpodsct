@@ -1,0 +1,31 @@
+{
+  "id": "history",
+  "title": "History",
+  "slug": "history",
+  "description": "Stories, figures, and turning points from the past, told plainly.",
+  "description_html": "<p>Stories, figures, and turning points from the past, told plainly.</p>",
+  "author": "Ammar Alkheder",
+  "owner": {
+    "name": "Ammar Alkheder",
+    "email": "ammar.webalchemist@gmail.com"
+  },
+  "language": "en-us",
+  "categories_itunes": ["History"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/history-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#c98a3b",
+  "tags": ["history"],
+  "type": "episodic",
+  "copyright": "© 2026 Ammar Alkheder",
+  "created_at": "2026-04-25T00:00:00Z",
+  "featured": false,
+  "sort_order": 3,
+  "podcast_guid": "e98fa522-fb83-47f8-b2b1-097718c8e4e8",
+  "podcast_locked": false,
+  "subscribe_links": {},
+  "funding": []
+}

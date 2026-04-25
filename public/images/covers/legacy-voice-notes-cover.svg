@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="Legacy Voice Notes cover art">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#1f1816" />
+      <stop offset="100%" stop-color="#0b0908" />
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ead4c2" />
+      <stop offset="100%" stop-color="#8f6d57" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="1400" fill="url(#bg)" />
+  <g fill="none" stroke-linecap="round">
+    <path d="M420 760c0-154 125-279 280-279s280 125 280 279" stroke="rgba(234,212,194,0.16)" stroke-width="30" />
+    <path d="M480 760c0-121 99-220 220-220s220 99 220 220" stroke="rgba(234,212,194,0.24)" stroke-width="18" />
+    <path d="M560 760c0-77 63-140 140-140s140 63 140 140" stroke="rgba(234,212,194,0.34)" stroke-width="12" />
+  </g>
+  <g fill="#ead4c2">
+    <rect x="620" y="300" width="160" height="430" rx="80" />
+    <rect x="585" y="760" width="230" height="54" rx="27" />
+    <rect x="665" y="812" width="70" height="140" rx="20" />
+    <rect x="560" y="930" width="280" height="42" rx="21" />
+  </g>
+  <text x="110" y="1110" fill="url(#title)" font-family="'Trebuchet MS', sans-serif" font-size="172" font-weight="700">Legacy Voice Notes</text>
+  <text x="118" y="1202" fill="#cfb7a6" font-family="'Segoe UI', sans-serif" font-size="42" letter-spacing="9">PRESERVED RECORDINGS AND MEMORIES</text>
+</svg>

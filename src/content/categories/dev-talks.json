@@ -30,8 +30,7 @@
   "subscribe_links": {
     "apple": "https://podcasts.apple.com/us/podcast/dev-talks/id0000000001",
     "spotify": "https://open.spotify.com/show/5exampledevtalks",
-    "rss": "https://podcast.example.com/feeds/dev-talks.xml",
-    "archive": "https://archive.org/details/@archive-signal"
+    "rss": "https://podcast.example.com/feeds/dev-talks.xml"
   },
   "funding": [
     {
