@@ -12,7 +12,7 @@ export interface RenderedArchiveFile {
   archiveId: string;
   file: ArchiveFile;
   url: string;
-  kind: 'image' | 'video';
+  kind: 'image' | 'video' | 'audio';
 }
 
 export interface ArchiveGalleryResult {

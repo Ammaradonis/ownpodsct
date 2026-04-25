@@ -1,0 +1,29 @@
+{
+  "id": "history-astray-2-2026-04-25",
+  "slug": "astray-2",
+  "category_id": "history",
+  "season": 1,
+  "episode_number": 2,
+  "episode_type": "full",
+  "title": "Astray",
+  "subtitle": "Part 2",
+  "description": "What it feels like to be off the straight path. Part 2.",
+  "description_html": "<p>What it feels like to be off the straight path. Part 2.</p>",
+  "summary": "Astray, part 2.",
+  "publish_date": "2026-04-25T10:36:40Z",
+  "duration_seconds": 3616,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/astray-3_202604/Astray2.m4a",
+    "mime_type": "audio/mp4",
+    "file_size_bytes": 59029225
+  },
+  "archive_identifier": "astray-3_202604",
+  "archive_url": "https://archive.org/details/astray-3_202604",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Internet Archive item](https://archive.org/details/astray-3_202604)",
+  "guests": [],
+  "tags": ["history", "astray"],
+  "explicit": false,
+  "status": "published"
+}

@@ -75,7 +75,7 @@ export async function validateContent({ updateGuidLock = false } = {}) {
 
   const episodeIds = new Map();
   const episodeSlugsByShow = new Map();
-  const archiveIdentifiers = new Map();
+  const mediaUrls = new Map();
   const now = Date.now();
   const futureWindowMs = 24 * 60 * 60 * 1000;
 
@@ -100,11 +100,11 @@ export async function validateContent({ updateGuidLock = false } = {}) {
     );
 
     uniqueKey(
-      archiveIdentifiers,
-      episode.data.archive_identifier,
+      mediaUrls,
+      episode.data.media.primary_url,
       episode.file,
       (firstFile, secondFile) =>
-        `Duplicate archive identifier "${episode.data.archive_identifier}" found in ${firstFile} and ${secondFile}.`,
+        `Duplicate media.primary_url "${episode.data.media.primary_url}" found in ${firstFile} and ${secondFile}.`,
       errors,
     );
 
