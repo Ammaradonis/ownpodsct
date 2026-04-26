@@ -1,0 +1,29 @@
+{
+  "id": "history-astray-6-2026-04-26",
+  "slug": "astray-6",
+  "category_id": "history",
+  "season": 1,
+  "episode_number": 6,
+  "episode_type": "full",
+  "title": "Astray",
+  "subtitle": "Part 6",
+  "description": "What it feels like to be off the straight path. Part 6.",
+  "description_html": "<p>What it feels like to be off the straight path. Part 6.</p>",
+  "summary": "Astray, part 6.",
+  "publish_date": "2026-04-26T12:05:00Z",
+  "duration_seconds": 5778,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/jurisprudence-ep.-1/Astray6.m4a",
+    "mime_type": "audio/mp4",
+    "file_size_bytes": 94298302
+  },
+  "archive_identifier": "jurisprudence-ep.-1",
+  "archive_url": "https://archive.org/details/jurisprudence-ep.-1",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Internet Archive item](https://archive.org/details/jurisprudence-ep.-1)",
+  "guests": [],
+  "tags": ["history", "astray"],
+  "explicit": false,
+  "status": "published"
+}

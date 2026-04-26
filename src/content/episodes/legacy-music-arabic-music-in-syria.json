@@ -6,12 +6,12 @@
   "episode_number": 1,
   "episode_type": "full",
   "title": "Arabic Music in SYRIA",
-  "subtitle": "A six-track collection presented in one episode.",
-  "description": "Six Arabic music MP3 tracks collected into a single Legacy Music episode.",
-  "description_html": "<p>Six Arabic music MP3 tracks collected into a single Legacy Music episode.</p>",
-  "summary": "A single Legacy Music episode containing six Arabic music tracks from the same Archive.org item.",
+  "subtitle": "A twenty-six-track collection presented in one episode.",
+  "description": "Twenty-six Arabic music MP3 tracks collected into a single Legacy Music episode.",
+  "description_html": "<p>Twenty-six Arabic music MP3 tracks collected into a single Legacy Music episode.</p>",
+  "summary": "A single Legacy Music episode containing twenty-six Arabic music tracks across two Archive.org items.",
   "publish_date": "2026-04-25T16:44:17Z",
-  "duration_seconds": 2242,
+  "duration_seconds": 7752,
   "media": {
     "type": "audio",
     "primary_url": "https://archive.org/download/www.ssvid.net-_320kbps/www.ssvid.net--Fairouz-Adesh-Kan-Finas-%D9%81%D9%8A%D8%B1%D9%88%D8%B2-%D8%A3%D8%AF%D9%8A%D8%B4-%D9%83%D8%A7%D9%86_320kbps.mp3",
@@ -60,12 +60,152 @@
       "mime_type": "audio/mpeg",
       "duration_seconds": 540,
       "file_size_bytes": 21585786
+    },
+    {
+      "title": "Ya Weel Weely Safar",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/ssVid.net---Ya-Weel-Weely-Safar-%D9%8A%D8%A7-%D9%88%D9%8A%D9%84-%D9%88%D9%8A%D9%84%D9%8A-%D8%B3%D9%81%D8%B1_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 282,
+      "file_size_bytes": 11285034
+    },
+    {
+      "title": "Amjad Jomaa - Ahla Sabiyeh",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Amjad-Jomaa-Ahla-Sabiyeh-Official-Music-Video-%D8%A3%D9%85%D8%AC%D8%AF_1080p_20260426_110831.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 316,
+      "file_size_bytes": 8874422
+    },
+    {
+      "title": "Amjad Jomaa - Ana Lamma Bheb",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Amjad-Jomaa-Ana-Lamma-Bheb-Official-Music-Video_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 204,
+      "file_size_bytes": 8161834
+    },
+    {
+      "title": "Amr Diab - Habibi Ya Nour El Ain",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Amr-Diab-Habibi-Ya-Nour-El-Ain_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 302,
+      "file_size_bytes": 12064528
+    },
+    {
+      "title": "Elissa - Aa Baly Habibi",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Elissa-Aa-Baly-Habibi-%D8%A7%D9%84%D9%8A%D8%B3%D8%A7-%D8%B9-%D8%A8%D8%A7%D9%84%D9%8A_20260425_214553.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 394,
+      "file_size_bytes": 6432592
+    },
+    {
+      "title": "Fares Karam - Badna Nwallea",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Fares-Karam-Badna-Nwallea-Lyrics-Video-%D9%81%D8%A7%D8%B1%D8%B3_20260426_110730.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 195,
+      "file_size_bytes": 5798582
+    },
+    {
+      "title": "Hussin Aldeek - Lamma Bdommak",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Hussin-Aldeek-%D8%AD%D9%80%D8%B3%D9%8A%D9%86-%D8%A7%D9%84%D8%AF%D9%8A%D9%83-%D9%84%D9%85%D8%A7-%D8%A8%D8%B6%D9%85%D9%83_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 221,
+      "file_size_bytes": 8844152
+    },
+    {
+      "title": "Mohamed Ramadan - BUM BUM",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Mohamed-Ramadan-BUM-BUM-Official-Music-Video_20260426_112613.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 286,
+      "file_size_bytes": 8359796
+    },
+    {
+      "title": "Mohamed Ramadan & Saad Lamjarred - Ensay",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Mohamed-Ramadan-Saad-Lamjarred-Ensay-Official-Music_20260426_112454.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 467,
+      "file_size_bytes": 10505192
+    },
+    {
+      "title": "Wegz - El Dunya Eh",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--Wegz-El-Dunya-Eh-prod-Draganov-%D9%88%D9%8A%D8%AC%D8%B2_20260426_112721.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 219,
+      "file_size_bytes": 6664694
+    },
+    {
+      "title": "Anas Kareem - Al Talqa Al Rousiya",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%A3%D9%86%D8%B3-%D9%83%D8%B1%D9%8A%D9%85-%D9%83%D9%84%D9%8A%D8%A8-%D8%A7%D9%84%D8%B7%D9%84%D9%82%D8%A9-%D8%A7%D9%84%D8%B1%D9%88%D8%B3%D9%8A%D8%A9-Anas-Kareem_20260426_110333.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 307,
+      "file_size_bytes": 8070264
+    },
+    {
+      "title": "Fartaka Fartaka",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%A7%D8%BA%D9%86%D9%8A%D9%87-%D9%81%D8%B1%D8%AA%D9%83%D8%A9-%D9%81%D8%B1%D8%AA%D9%83%D8%A9-%D8%A8%D8%A7%D9%84%D9%83%D9%84%D9%85%D8%A7%D8%AA-%D8%A7%D9%84%D8%AF%D8%AE%D9%84%D8%A7%D9%88%D9%8A%D8%A9-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF_360P_20260426_112547.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 358,
+      "file_size_bytes": 6088727
+    },
+    {
+      "title": "Habibti Eftahi Shabakkik",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%AD%D8%A8%D9%8A%D8%A8%D8%AA%D9%8A-%D8%A7%D9%81%D8%AA%D8%AD%D9%8A-%D8%B4%D8%A8%D8%A7%D9%83%D9%83-%D8%A7%D9%86%D8%A7-%D8%AC%D9%8A%D8%AA-%D8%AD%D8%B3%D9%86-%D8%B4%D8%A7%D9%83%D9%88%D8%B4-%D9%88-%D9%8A%D8%A7%D8%B3%D9%85%D9%8A%D9%86_20260426_112705.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 217,
+      "file_size_bytes": 5830770
+    },
+    {
+      "title": "Hossam Jneed - Nseeni 2020",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%AD%D8%B3%D8%A7%D9%85-%D8%AC%D9%86%D9%8A%D8%AF-%D9%86%D8%B3%D9%8A%D9%86%D9%8A-2020_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 303,
+      "file_size_bytes": 12136625
+    },
+    {
+      "title": "Hussain Al Jassmi - Belbont El Areed",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%AD%D8%B3%D9%8A%D9%86-%D8%A7%D9%84%D8%AC%D8%B3%D9%85%D9%8A-%D8%A8%D8%A7%D9%84%D8%A8%D9%86%D8%B7-%D8%A7%D9%84%D8%B9%D8%B1%D9%8A%D8%B6-%D8%AD%D8%B5%D8%B1%D9%8A%D8%A7-2020-Unknown_20260426_112648.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 202,
+      "file_size_bytes": 6005993
+    },
+    {
+      "title": "Sawf Nabqa Huna",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%B3%D9%88%D9%81-%D9%86%D8%A8%D9%82%D9%89-%D9%87%D9%86%D8%A7-%D8%B1%D8%A7%D9%85%D9%8A-%D9%85%D8%AD%D9%85%D8%AF-Ramy-Muhamad-sawf_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 268,
+      "file_size_bytes": 10724968
+    },
+    {
+      "title": "Talabti Minni Hall Annak",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D8%B7%D9%84%D8%A8%D8%AA%D9%8A-%D9%85%D9%86%D9%8A-%D8%AD%D9%84-%D8%B9%D9%86%D9%83_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 207,
+      "file_size_bytes": 8285132
+    },
+    {
+      "title": "Mahragan Bent El Geeran",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%A8%D9%86%D8%AA-%D8%A7%D9%84%D8%AC%D9%8A%D8%B1%D8%A7%D9%86-%D8%A8%D9%87%D9%88%D8%A7%D9%8A%D8%A7-%D8%A7%D9%86%D8%AA%D9%8A-%D9%82%D8%A7%D8%B9%D8%AF%D9%87-%D9%85%D8%B9%D8%A7%D9%8A%D8%A7-%D8%AD%D8%B3%D9%86_20260426_112634.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 195,
+      "file_size_bytes": 5042280
+    },
+    {
+      "title": "Mahragan Shams Al Magarra",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/www.ssvid.net--%D9%85%D9%87%D8%B1%D8%AC%D8%A7%D9%86-%D8%B4%D9%85%D8%B3-%D8%A7%D9%84%D9%85%D8%AC%D8%B1%D8%A9-%D8%B9%D9%85%D8%B1-%D9%83%D9%85%D8%A7%D9%84-%D8%AD%D9%85%D9%88-%D8%A8%D9%8A%D9%83%D8%A7_20260426_112523.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 366,
+      "file_size_bytes": 9994963
+    },
+    {
+      "title": "Zekra Al Maarek Wtariha Yaslini",
+      "url": "https://archive.org/download/www.ssvid.net-2020_320kbps/%D8%B0%D9%83%D8%B1%D9%89%20%D8%A7%D9%84%D9%85%D8%B9%D8%A7%D8%B1%D9%83%20%D9%88%D8%B7%D8%A7%D8%B1%D9%8A%D9%87%D8%A7%20%D9%8A%D8%B3%D9%84%D9%8A%D9%86%D9%8A.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 201,
+      "file_size_bytes": 3211901
     }
   ],
   "archive_identifier": "www.ssvid.net-_320kbps",
   "archive_url": "https://archive.org/details/www.ssvid.net-_320kbps",
   "chapters": [],
-  "show_notes_markdown": "## Tracks\n- Fairouz - Adesh Kan Finas\n- Ziad Bourji - Shou Helou\n- Remeit Shala Fouq Al-Bahr\n- Shadi Ranjous - Ala Ramshi\n- Shadi Ranjous - Am Brsem Wajhak Bnjoum\n- Fairouz - Ala Hadeer Al-Bosta\n\n## Source\n- [Internet Archive item](https://archive.org/details/www.ssvid.net-_320kbps)",
+  "show_notes_markdown": "## Collection\nThis episode now groups 26 Arabic music MP3 tracks into a single page.\n\n## Sources\n- [Internet Archive item 1](https://archive.org/details/www.ssvid.net-_320kbps)\n- [Internet Archive item 2](https://archive.org/details/www.ssvid.net-2020_320kbps)",
   "guests": [],
   "tags": ["legacy-music", "arabic-music", "syria"],
   "explicit": false,

@@ -1,0 +1,66 @@
+{
+  "id": "legacy-music-english-music-taste-2026-04-26",
+  "slug": "english-music-taste",
+  "category_id": "legacy-music",
+  "season": 1,
+  "episode_number": 2,
+  "episode_type": "full",
+  "title": "English Music Taste",
+  "subtitle": "A five-track collection presented in one episode.",
+  "description": "Five English-language MP3 tracks collected into a single Legacy Music episode.",
+  "description_html": "<p>Five English-language MP3 tracks collected into a single Legacy Music episode.</p>",
+  "summary": "A single Legacy Music episode containing five English-language tracks from the same Archive.org item.",
+  "publish_date": "2026-04-26T12:00:00Z",
+  "duration_seconds": 1113,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://archive.org/download/jurisprudence-ep.-1/www.ssvid.net--Travis-Scott-MY-EYES-Official-Audio_320kbps.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 10115793
+  },
+  "audio_tracks": [
+    {
+      "title": "Travis Scott - MY EYES",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/www.ssvid.net--Travis-Scott-MY-EYES-Official-Audio_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 253,
+      "file_size_bytes": 10115793
+    },
+    {
+      "title": "Travis Scott - Nightcrawler",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/www.ssvid.net--Nightcrawler-travis-scott-edit-song_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 225,
+      "file_size_bytes": 8988348
+    },
+    {
+      "title": "Indila - Tourner Dans Le Vide",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/www.ssvid.net--Indila-Tourner-Dans-Le-Vide-Official-Lyric-Video_320kbps.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 227,
+      "file_size_bytes": 9067760
+    },
+    {
+      "title": "ASCENSION",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/www.ssvid.net--ASCENSION-Unknown-1080p-h264-mp4_20260325_101436.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 188,
+      "file_size_bytes": 5401630
+    },
+    {
+      "title": "Egzod x Maestro Chives x Royalty ft. Neoni",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/ssvid.net%20-%20Egzod%20%20Maestro%20Chives%20%20Royalty%20Lyrics%20ft%20Neoni.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 221,
+      "file_size_bytes": 3533564
+    }
+  ],
+  "archive_identifier": "jurisprudence-ep.-1",
+  "archive_url": "https://archive.org/details/jurisprudence-ep.-1",
+  "chapters": [],
+  "show_notes_markdown": "## Tracks\n- Travis Scott - MY EYES\n- Travis Scott - Nightcrawler\n- Indila - Tourner Dans Le Vide\n- ASCENSION\n- Egzod x Maestro Chives x Royalty ft. Neoni\n\n## Source\n- [Internet Archive item](https://archive.org/details/jurisprudence-ep.-1)",
+  "guests": [],
+  "tags": ["legacy-music", "english-music"],
+  "explicit": false,
+  "status": "published"
+}

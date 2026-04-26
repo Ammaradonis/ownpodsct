@@ -10,6 +10,21 @@ const mimeTypeSchema = z.string().regex(/^[a-z0-9!#$&^_.+-]+\/[a-z0-9!#$&^_.+-]+
   message: 'Expected a valid MIME type.',
 });
 
+const archiveUrlSchema = z
+  .string()
+  .url()
+  .refine(
+    (value) => {
+      try {
+        const { hostname } = new URL(value);
+        return hostname === 'archive.org' || hostname.endsWith('.archive.org');
+      } catch {
+        return false;
+      }
+    },
+    { message: 'Expected an archive.org URL (canonical or mirror, e.g. iaXXX.us.archive.org, dnXXX.ca.archive.org).' },
+  );
+
 const subscribeLinksSchema = z
   .object({
     apple: z.string().url().optional(),
@@ -74,7 +89,7 @@ export const guestSchema = z.object({
 
 export const mediaSchema = z.object({
   type: z.string().min(1),
-  primary_url: z.string().url().startsWith('https://archive.org/'),
+  primary_url: archiveUrlSchema,
   mirror_url: z.string().url().optional(),
   mime_type: mimeTypeSchema,
   file_size_bytes: z.number().int().positive(),
@@ -86,7 +101,7 @@ export const mediaSchema = z.object({
 
 export const audioTrackSchema = z.object({
   title: z.string().min(1).max(255),
-  url: z.string().url().startsWith('https://archive.org/'),
+  url: archiveUrlSchema,
   mime_type: mimeTypeSchema,
   duration_seconds: z.number().int().positive(),
   file_size_bytes: z.number().int().positive(),

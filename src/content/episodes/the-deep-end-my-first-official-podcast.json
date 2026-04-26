@@ -11,7 +11,7 @@
   "description_html": "<p>Mr. Al-Green's Repentance.</p>",
   "summary": "Mr. Al-Green's Repentance.",
   "publish_date": "2026-04-24T15:00:00Z",
-  "duration_seconds": 1802,
+  "duration_seconds": 5427,
   "media": {
     "type": "audio",
     "primary_url": "https://archive.org/download/repentance-ep.-1/Repentance-Ep1.mp3",
@@ -22,10 +22,26 @@
     "channels": 1,
     "sha256": "3b77db8dcf6ac3f967c7632e8f5cfe6070c46ed7daad04ba6b98e56d1d35a401"
   },
+  "audio_tracks": [
+    {
+      "title": "Repentance Ep. 1",
+      "url": "https://archive.org/download/repentance-ep.-1/Repentance-Ep1.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1802,
+      "file_size_bytes": 14420379
+    },
+    {
+      "title": "Voice 260425 190504 Join",
+      "url": "https://archive.org/download/jurisprudence-ep.-1/Voice%20260425_190504_join.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 3624,
+      "file_size_bytes": 144964800
+    }
+  ],
   "archive_identifier": "repentance-ep.-1",
   "archive_url": "https://archive.org/details/repentance-ep.-1",
   "chapters": [],
-  "show_notes_markdown": "",
+  "show_notes_markdown": "## Tracks\n- Repentance Ep. 1\n- Voice 260425 190504 Join\n\n## Sources\n- [Repentance Ep. 1](https://archive.org/details/repentance-ep.-1)\n- [Jurisprudence Ep. 1](https://archive.org/details/jurisprudence-ep.-1)",
   "guests": [],
   "tags": [],
   "explicit": false,
