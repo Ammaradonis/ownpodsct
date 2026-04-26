@@ -10,7 +10,7 @@
   "description": "A video episode published from the Archive.org item \"20250802 100059\".",
   "description_html": "<p>A video episode published from the Archive.org item &ldquo;20250802 100059&rdquo;.</p>",
   "summary": "Ammar's Past video entry for the History show.",
-  "publish_date": "2026-04-26T12:15:00Z",
+  "publish_date": "2026-04-26T08:15:00Z",
   "duration_seconds": 955,
   "media": {
     "type": "video",
@@ -28,7 +28,15 @@
   "archive_identifier": "20250802-100059",
   "archive_url": "https://archive.org/details/20250802-100059",
   "chapters": [],
-  "show_notes_markdown": "## Source\n- [Internet Archive item](https://archive.org/details/20250802-100059)",
+  "archive_gallery": {
+    "enabled": true,
+    "extra_files": [
+      {
+        "url": "https://ia902909.us.archive.org/21/items/20250802-100059/WIN_20250622_09_43_42_Pro.mp4",
+        "kind": "video"
+      }
+    ]
+  },
   "guests": [],
   "tags": ["history", "ammar", "past"],
   "explicit": false,
