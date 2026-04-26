@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1400" role="img" aria-label="Ramez Prank Series cover art">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b1e57" />
+      <stop offset="100%" stop-color="#1a0a2e" />
+    </linearGradient>
+    <linearGradient id="title" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#facc15" />
+      <stop offset="100%" stop-color="#ec4899" />
+    </linearGradient>
+  </defs>
+  <rect width="1400" height="1400" fill="url(#bg)" />
+  <g fill="rgba(236,72,153,0.16)">
+    <circle cx="370" cy="500" r="160" />
+    <circle cx="1030" cy="520" r="160" />
+  </g>
+  <g fill="rgba(250,204,21,0.18)">
+    <polygon points="700,300 760,470 940,470 800,580 860,760 700,650 540,760 600,580 460,470 640,470" />
+  </g>
+  <text x="120" y="1090" fill="url(#title)" font-family="'Trebuchet MS', sans-serif" font-size="190" font-weight="700">Ramez Prank</text>
+  <text x="120" y="1240" fill="url(#title)" font-family="'Trebuchet MS', sans-serif" font-size="190" font-weight="700">Series</text>
+  <text x="124" y="1320" fill="#e9d5ff" font-family="'Segoe UI', sans-serif" font-size="44" letter-spacing="10">EGYPTIAN COMEDY HIDDEN-CAMERA</text>
+</svg>
