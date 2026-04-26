@@ -41,7 +41,15 @@
   "archive_identifier": "jurisprudence-ep.-1",
   "archive_url": "https://archive.org/details/jurisprudence-ep.-1",
   "chapters": [],
-  "show_notes_markdown": "## Tracks\n- Jurisprudence Ep. 1\n- Jurisprudence - Ka'ab and Prayer\n\n## Source\n- [Internet Archive item](https://archive.org/details/jurisprudence-ep.-1)",
+  "archive_gallery": {
+    "enabled": true,
+    "extra_files": [
+      {
+        "url": "https://ia902909.us.archive.org/21/items/20250802-100059/Haram-Al-Sharif-Story-and-Hadith-Science.m4a",
+        "kind": "audio"
+      }
+    ]
+  },
   "guests": [],
   "tags": ["kab-ibn-malik", "repentance", "vienna"],
   "explicit": false,

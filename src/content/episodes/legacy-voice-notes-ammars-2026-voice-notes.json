@@ -1,0 +1,26 @@
+{
+  "id": "legacy-voice-notes-ammars-2026-voice-notes-2026-04-26",
+  "slug": "ammars-2026-voice-notes",
+  "category_id": "legacy-voice-notes",
+  "season": 1,
+  "episode_number": 1,
+  "episode_type": "full",
+  "title": "Ammar's 2026 voice notes",
+  "description": "A 2026 voice-note collection from Ammar.",
+  "summary": "Ammar's 2026 voice notes.",
+  "publish_date": "2026-04-26T15:00:00Z",
+  "duration_seconds": 1800,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://ia902909.us.archive.org/21/items/20250802-100059/PTT-20260330-WA0004_join.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 7555200
+  },
+  "archive_identifier": "20250802-100059",
+  "archive_url": "https://archive.org/details/20250802-100059",
+  "chapters": [],
+  "guests": [],
+  "tags": ["legacy-voice-notes", "ammar", "voice-notes"],
+  "explicit": false,
+  "status": "published"
+}
