@@ -1,0 +1,36 @@
+{
+  "id": "history-ammars-past-2026-04-26",
+  "slug": "ammars-past",
+  "category_id": "history",
+  "season": 1,
+  "episode_number": 7,
+  "episode_type": "full",
+  "title": "Ammar's Past",
+  "subtitle": "A video entry added to the History show.",
+  "description": "A video episode published from the Archive.org item \"20250802 100059\".",
+  "description_html": "<p>A video episode published from the Archive.org item &ldquo;20250802 100059&rdquo;.</p>",
+  "summary": "Ammar's Past video entry for the History show.",
+  "publish_date": "2026-04-26T12:15:00Z",
+  "duration_seconds": 955,
+  "media": {
+    "type": "video",
+    "primary_url": "https://archive.org/download/20250802-100059/WIN_20250622_09_43_42_Pro.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 970659370
+  },
+  "video": {
+    "enabled": true,
+    "url": "https://archive.org/download/20250802-100059/WIN_20250622_09_43_42_Pro.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 970659370,
+    "resolution": "1280x720"
+  },
+  "archive_identifier": "20250802-100059",
+  "archive_url": "https://archive.org/details/20250802-100059",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Internet Archive item](https://archive.org/details/20250802-100059)",
+  "guests": [],
+  "tags": ["history", "ammar", "past"],
+  "explicit": false,
+  "status": "published"
+}

@@ -1,0 +1,36 @@
+{
+  "id": "ramez-prank-series-ramez-full-history-2026-04-26",
+  "slug": "ramez-full-history",
+  "category_id": "ramez-prank-series",
+  "season": 1,
+  "episode_number": 1,
+  "episode_type": "full",
+  "title": "Ramez Full History",
+  "description": "Seventeen Ramez Galal hidden-camera prank videos collected into a single episode.",
+  "summary": "All seventeen Ramez Galal prank videos in one place.",
+  "publish_date": "2026-04-26T12:00:00Z",
+  "duration_seconds": 7200,
+  "media": {
+    "type": "video",
+    "primary_url": "https://archive.org/download/www.ssvid.net-ramez-galal/www.ssvid.net--Ramez-Lion-Heart-Intro-%D8%B1%D8%A7%D9%85%D8%B2-%D9%82%D9%84%D8%A8-%D8%A7%D9%84%D8%A3%D8%B3%D8%AF.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 2082438
+  },
+  "video": {
+    "enabled": true,
+    "url": "https://archive.org/download/www.ssvid.net-ramez-galal/www.ssvid.net--Ramez-Lion-Heart-Intro-%D8%B1%D8%A7%D9%85%D8%B2-%D9%82%D9%84%D8%A8-%D8%A7%D9%84%D8%A3%D8%B3%D8%AF.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 2082438
+  },
+  "archive_identifier": "www.ssvid.net-ramez-galal",
+  "archive_url": "https://archive.org/details/www.ssvid.net-ramez-galal",
+  "chapters": [],
+  "archive_gallery": {
+    "enabled": true,
+    "additional_identifiers": ["www.ssvid.net-ramez-galal"]
+  },
+  "guests": [],
+  "tags": ["ramez", "prank", "comedy"],
+  "explicit": false,
+  "status": "published"
+}
