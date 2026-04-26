@@ -42,7 +42,27 @@ const isImage = (f: ArchiveFile) =>
 const isVideo = (f: ArchiveFile) =>
   /\.(mp4|webm|mov|m4v)$/i.test(f.name) || /mpeg4|h\.264|video/i.test(f.format ?? '');
 
+const isAudio = (f: ArchiveFile) =>
+  /\.(m4a|mp3|ogg|oga|wav|flac|aac)$/i.test(f.name) ||
+  /mpeg-4 audio|mp3|ogg|wav|flac|aac/i.test(f.format ?? '');
+
 const isThumb = (f: ArchiveFile) => /thumb/i.test(f.name);
+
+const detectKindFromUrl = (url: string): 'image' | 'video' | 'audio' => {
+  const path = url.split(/[?#]/)[0].toLowerCase();
+  if (/\.(mp4|webm|mov|m4v)$/i.test(path)) return 'video';
+  if (/\.(m4a|mp3|ogg|oga|wav|flac|aac)$/i.test(path)) return 'audio';
+  return 'image';
+};
+
+const filenameFromUrl = (url: string): string => {
+  try {
+    const last = url.split(/[?#]/)[0].split('/').pop() ?? url;
+    return decodeURIComponent(last);
+  } catch {
+    return url;
+  }
+};
 
 const archiveFileUrl = (id: string, name: string) =>
   `https://archive.org/download/${id}/${encodeURIComponent(name).replace(/%2F/g, '/')}`;
@@ -82,6 +102,7 @@ const fetchFresh = async (archiveId: string): Promise<RenderedArchiveFile[]> => 
   const noThumbs = allFiles.filter((f) => !isThumb(f));
 
   const images = noThumbs.filter((f) => f.source === 'original' && isImage(f));
+  const audios = noThumbs.filter((f) => f.source === 'original' && isAudio(f));
 
   const videoFiles = noThumbs.filter(isVideo);
   const iaDerivBases = new Set(
@@ -96,11 +117,11 @@ const fetchFresh = async (archiveId: string): Promise<RenderedArchiveFile[]> => 
     return !iaDerivBases.has(base);
   });
 
-  return [...images, ...videos].map((file) => ({
+  return [...images, ...videos, ...audios].map((file) => ({
     archiveId,
     file,
     url: archiveFileUrl(archiveId, file.name),
-    kind: isVideo(file) ? 'video' : 'image',
+    kind: isVideo(file) ? 'video' : isAudio(file) ? 'audio' : 'image',
   }));
 };
 
@@ -125,11 +146,28 @@ async function loadArchiveItem(archiveId: string): Promise<RenderedArchiveFile[]
   }
 }
 
+export interface ExtraFile {
+  url: string;
+  kind?: 'image' | 'video' | 'audio';
+}
+
 export async function loadArchiveGallery(
   archiveIds: string | string[],
+  extras: ExtraFile[] = [],
 ): Promise<ArchiveGalleryResult> {
   const ids = Array.isArray(archiveIds) ? archiveIds : [archiveIds];
   const perItem = await Promise.all(ids.map(loadArchiveItem));
-  const files = perItem.flat();
+  const archiveFiles = perItem.flat();
+
+  const extraRendered: RenderedArchiveFile[] = extras
+    .filter((ex) => !/thumb/i.test(ex.url))
+    .map((ex) => ({
+      archiveId: '',
+      file: { name: filenameFromUrl(ex.url), source: 'extra' },
+      url: ex.url,
+      kind: ex.kind ?? detectKindFromUrl(ex.url),
+    }));
+
+  const files = [...archiveFiles, ...extraRendered];
   return { files, totalCount: files.length };
 }

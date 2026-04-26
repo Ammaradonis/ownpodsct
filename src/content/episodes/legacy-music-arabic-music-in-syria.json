@@ -205,7 +205,15 @@
   "archive_identifier": "www.ssvid.net-_320kbps",
   "archive_url": "https://archive.org/details/www.ssvid.net-_320kbps",
   "chapters": [],
-  "show_notes_markdown": "## Collection\nThis episode now groups 26 Arabic music MP3 tracks into a single page.\n\n## Sources\n- [Internet Archive item 1](https://archive.org/details/www.ssvid.net-_320kbps)\n- [Internet Archive item 2](https://archive.org/details/www.ssvid.net-2020_320kbps)",
+  "archive_gallery": {
+    "enabled": true,
+    "extra_files": [
+      {
+        "url": "https://ia902907.us.archive.org/13/items/win-20260417-11-53-54-pro/www.ssvid.net--%D8%A7%D9%84%D8%A7%D9%86%D8%AF%D8%A8%D9%88%D8%B1%D9%8A-%D8%A7%D9%85%D9%84-%D9%82%D8%B7%D8%A7%D9%85%D9%8A-%D9%82%D9%86%D8%A7%D8%A9-%D9%83%D8%B1%D8%A7%D9%85%D9%8A%D8%B4-Karameesh-Tv.mp4",
+        "kind": "video"
+      }
+    ]
+  },
   "guests": [],
   "tags": ["legacy-music", "arabic-music", "syria"],
   "explicit": false,

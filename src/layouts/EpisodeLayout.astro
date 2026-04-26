@@ -23,14 +23,12 @@ let archiveFiles: RenderedArchiveFile[] = [];
 let archiveError: string | null = null;
 
 const galleryEnabled = episode.data.archive_gallery?.enabled === true;
-const archiveIds = [
-  episode.data.archive_identifier,
-  ...(episode.data.archive_gallery?.additional_identifiers ?? []),
-].filter((id): id is string => Boolean(id));
+const archiveIds = episode.data.archive_gallery?.additional_identifiers ?? [];
+const extraFiles = episode.data.archive_gallery?.extra_files ?? [];
 
-if (galleryEnabled && archiveIds.length > 0) {
+if (galleryEnabled && (archiveIds.length > 0 || extraFiles.length > 0)) {
   try {
-    const result = await loadArchiveGallery(archiveIds);
+    const result = await loadArchiveGallery(archiveIds, extraFiles);
     archiveFiles = result.files;
   } catch (err) {
     archiveError = (err as Error).message;
@@ -73,13 +71,19 @@ if (galleryEnabled && archiveIds.length > 0) {
 
           {archiveFiles.length > 0 && (
             <div class="archive-gallery__grid">
-              {archiveFiles.map(({ file, url, kind }) =>
-                kind === 'video' ? (
-                  <video class="archive-file__video" src={url} controls preload="metadata" playsinline />
-                ) : (
+              {archiveFiles.map(({ file, url, kind }) => {
+                if (kind === 'video') {
+                  return (
+                    <video class="archive-file__video" src={url} controls preload="metadata" playsinline />
+                  );
+                }
+                if (kind === 'audio') {
+                  return <audio class="archive-file__audio" src={url} controls preload="none" />;
+                }
+                return (
                   <img class="archive-file__image" src={url} alt={file.name} loading="lazy" />
-                ),
-              )}
+                );
+              })}
             </div>
           )}
         </section>
@@ -297,7 +301,8 @@ if (galleryEnabled && archiveIds.length > 0) {
   }
 
   .archive-file__image,
-  .archive-file__video {
+  .archive-file__video,
+  .archive-file__audio {
     width: 100%;
     border-radius: 0.85rem;
     display: block;

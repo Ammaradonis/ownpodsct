@@ -124,6 +124,14 @@ export const archiveGallerySchema = z
     title: z.string().min(1).max(255).optional(),
     description: z.string().max(4000).optional(),
     additional_identifiers: z.array(z.string().min(1).max(255)).default([]),
+    extra_files: z
+      .array(
+        z.object({
+          url: archiveUrlSchema,
+          kind: z.enum(['image', 'video', 'audio']).optional(),
+        }),
+      )
+      .default([]),
   })
   .optional();
 
