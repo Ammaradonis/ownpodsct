@@ -15,7 +15,9 @@
       "Bash(xxd)",
       "Bash(node *)",
       "Bash(curl -sI \"https://archive.org/download/20260105-165205/IMG-20250731-WA0005\\(1\\).jpg\")",
-      "Bash(grep -E '\\(jpg|png|jpeg\\)\"$')"
+      "Bash(grep -E '\\(jpg|png|jpeg\\)\"$')",
+      "Bash(npx astro *)",
+      "Bash(sort echo *)"
     ]
   }
 }
