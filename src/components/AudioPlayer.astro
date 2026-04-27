@@ -33,6 +33,7 @@ const tracks =
   data-title={episode.data.title}
   data-duration={tracks[0]?.duration_seconds ?? episode.data.duration_seconds}
   data-repeat-current-track={episode.data.slug === 'arabic-quranic-recordings' ? 'true' : 'false'}
+  data-enable-shuffle={episode.data.slug === 'arabic-quranic-recordings' ? 'true' : 'false'}
 >
   <div class="player-toolbar">
     <button type="button" data-skip="-15" aria-label="Skip back 15 seconds">-15s</button>
@@ -47,6 +48,11 @@ const tracks =
         <option value="2">2x</option>
       </select>
     </label>
+    {episode.data.slug === 'arabic-quranic-recordings' && (
+      <button type="button" data-shuffle-button aria-label="Play a different surah without repeats until all 114 have been shuffled">
+        Shuffle
+      </button>
+    )}
     <button type="button" data-copy-timestamp>Copy timestamp link</button>
   </div>
   <audio

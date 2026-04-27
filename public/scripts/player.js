@@ -21,13 +21,42 @@ function initialisePlayer(wrapper) {
   const mirrorUrl = wrapper.dataset.mirrorUrl;
   const storageKey = `${storagePrefix}${episodeId}`;
   const speedSelect = wrapper.querySelector('[data-speed]');
+  const shuffleButton = wrapper.querySelector('[data-shuffle-button]');
   const chapterButtons = wrapper.querySelectorAll('[data-chapter]');
   const copyTimestampButton = wrapper.querySelector('[data-copy-timestamp]');
-  const trackButtons = wrapper.querySelectorAll('[data-track-button]');
-  const repeatTrackButtons = wrapper.querySelectorAll('[data-repeat-track-button]');
+  const trackButtons = Array.from(wrapper.querySelectorAll('[data-track-button]'));
+  const repeatTrackButtons = Array.from(wrapper.querySelectorAll('[data-repeat-track-button]'));
   const repeatCurrentTrack = wrapper.dataset.repeatCurrentTrack === 'true';
+  const enableShuffle = wrapper.dataset.enableShuffle === 'true';
   let currentTrackIndex = 0;
   let repeatingTrackIndex = null;
+  let shuffledTrackIndices = new Set([0]);
+
+  const applyTrack = (nextTrackIndex, nextUrl, nextDuration) => {
+    if (!nextUrl || nextTrackIndex === currentTrackIndex) {
+      return;
+    }
+
+    const currentRate = media.playbackRate;
+    currentTrackIndex = nextTrackIndex;
+    shuffledTrackIndices.add(nextTrackIndex);
+    wrapper.dataset.duration = String(nextDuration || 0);
+    media.dataset.duration = String(nextDuration || 0);
+    media.src = nextUrl;
+    media.dataset.fallbackApplied = 'false';
+    media.load();
+    media.playbackRate = currentRate;
+    media.addEventListener(
+      'loadedmetadata',
+      () => {
+        media.playbackRate = currentRate;
+      },
+      { once: true },
+    );
+    lastSavedSecond = -1;
+    setActiveTrackButton();
+    media.play().catch(() => {});
+  };
 
   const storageKeyForTrack = () => `${storageKey}:track:${currentTrackIndex}`;
   const setActiveTrackButton = () => {
@@ -116,19 +145,7 @@ function initialisePlayer(wrapper) {
       const nextTrackIndex = Number(button.dataset.trackIndex || 0);
       const nextUrl = button.dataset.trackUrl;
       const nextDuration = Number(button.dataset.trackDuration || 0);
-      if (!nextUrl || nextTrackIndex === currentTrackIndex) {
-        return;
-      }
-
-      currentTrackIndex = nextTrackIndex;
-      wrapper.dataset.duration = String(nextDuration || 0);
-      media.dataset.duration = String(nextDuration || 0);
-      media.src = nextUrl;
-      media.dataset.fallbackApplied = 'false';
-      media.load();
-      lastSavedSecond = -1;
-      setActiveTrackButton();
-      media.play().catch(() => {});
+      applyTrack(nextTrackIndex, nextUrl, nextDuration);
     });
   });
 
@@ -142,6 +159,30 @@ function initialisePlayer(wrapper) {
       repeatingTrackIndex = repeatingTrackIndex === targetTrackIndex ? null : targetTrackIndex;
       setActiveTrackButton();
     });
+  });
+
+  shuffleButton?.addEventListener('click', () => {
+    if (!enableShuffle || trackButtons.length < 2) {
+      return;
+    }
+
+    const allTrackIndices = trackButtons.map((_, index) => index);
+    let availableIndices = allTrackIndices.filter(
+      (index) => index !== currentTrackIndex && !shuffledTrackIndices.has(index),
+    );
+
+    if (availableIndices.length === 0) {
+      shuffledTrackIndices = new Set([currentTrackIndex]);
+      availableIndices = allTrackIndices.filter((index) => index !== currentTrackIndex);
+    }
+
+    const nextTrackIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    const nextTrackButton = trackButtons[nextTrackIndex];
+    const nextUrl = nextTrackButton?.dataset.trackUrl;
+    const nextDuration = Number(nextTrackButton?.dataset.trackDuration || 0);
+
+    repeatingTrackIndex = null;
+    applyTrack(nextTrackIndex, nextUrl, nextDuration);
   });
 
   setActiveTrackButton();
