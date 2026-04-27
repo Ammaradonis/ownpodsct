@@ -1,0 +1,92 @@
+{
+  "id": "legacy-music-islamic-nasheeds-video-2026-04-27",
+  "slug": "islamic-nasheeds-video",
+  "category_id": "legacy-music",
+  "season": 1,
+  "episode_number": 5,
+  "episode_type": "full",
+  "title": "Islamic Nasheeds Video",
+  "subtitle": "An 11-video nasheed collection presented in one episode.",
+  "description": "Eleven MP4 nasheed videos collected into a single Legacy Music episode from the Archive.org item islamic-nasheeds.",
+  "description_html": "<p>Eleven MP4 nasheed videos collected into a single Legacy Music episode from the Archive.org item <code>islamic-nasheeds</code>.</p>",
+  "summary": "A single Legacy Music episode containing all 11 MP4 videos from the Archive.org item islamic-nasheeds.",
+  "publish_date": "2026-04-27T00:10:00Z",
+  "language": "ar",
+  "duration_seconds": 1804,
+  "media": {
+    "type": "video",
+    "primary_url": "https://archive.org/download/islamic-nasheeds/%D8%A3%D9%8E%D9%82%D9%8A%D9%85%D9%88%D8%A7%20%D9%84%D9%90%D8%B9%D9%8E%D8%B7%D8%B4%D8%A7%D9%86%D9%90%20%D8%A7%D9%84%D8%B1%D9%90%D9%91%D9%85%D8%A7%D8%AD.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 27997931
+  },
+  "video": {
+    "enabled": true,
+    "url": "https://archive.org/download/islamic-nasheeds/%D8%A3%D9%8E%D9%82%D9%8A%D9%85%D9%88%D8%A7%20%D9%84%D9%90%D8%B9%D9%8E%D8%B7%D8%B4%D8%A7%D9%86%D9%90%20%D8%A7%D9%84%D8%B1%D9%90%D9%91%D9%85%D8%A7%D8%AD.mp4",
+    "mime_type": "video/mp4",
+    "file_size_bytes": 27997931,
+    "resolution": "1280x720"
+  },
+  "archive_identifier": "islamic-nasheeds",
+  "archive_url": "https://archive.org/details/islamic-nasheeds",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Archive.org item](https://archive.org/details/islamic-nasheeds)\n\n## Collection\n- 11 MP4 videos\n- All video files are loaded into this single episode",
+  "archive_gallery": {
+    "enabled": true,
+    "extra_files": [
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%A3%D9%8E%D9%82%D9%8A%D9%85%D9%88%D8%A7%20%D9%84%D9%90%D8%B9%D9%8E%D8%B7%D8%B4%D8%A7%D9%86%D9%90%20%D8%A7%D9%84%D8%B1%D9%90%D9%91%D9%85%D8%A7%D8%AD.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%A8%D8%A7%D9%84%D8%B3%D9%83%D8%A7%D9%83%D9%8A%D9%86%20%D8%A7%D9%86%D8%B7%D9%84%D9%82%D9%86%D8%A7.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%A8%D9%83%D8%B3%D8%B1%20%D8%A7%D9%84%D8%AC%D9%85%D8%A7%D8%AC%D9%85.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%AB%D8%A8%D8%A7%D8%AA%20%D8%A7%D9%84%D8%AC%D8%A8%D8%A7%D9%84.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%B3%D9%8A%D9%81%20%D8%A7%D9%84%D8%B1%D8%AF%D9%89.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%B5%D9%82%D9%88%D8%B1%20%D8%A3%D8%AA%D9%8A%D9%86%D8%A7.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%B9%D8%A7%D9%82%D8%AF%D9%8B%D8%A7%20%D8%A8%D9%8A%D8%B9%D8%AA%D9%8A.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%B9%D8%AC%D8%A8%D8%A7%D9%8B%20%D9%84%D9%90%D9%85%D9%86%20%D9%82%D8%AF%20%D8%B3%D8%A7%D8%B1%D9%8E.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D8%B9%D8%B5%D9%81%20%D9%88%D9%82%D8%B5%D9%81.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D9%82%D8%B1%D9%8A%D8%A8%D9%8B%D8%A7%20%D9%82%D8%B1%D9%8A%D8%A8%D9%8B%D8%A7.mp4",
+        "kind": "video"
+      },
+      {
+        "url": "https://archive.org/download/islamic-nasheeds/%D9%84%D8%A7%20%D8%A3%D8%A8%D8%A7%D9%84%D9%8A.mp4",
+        "kind": "video"
+      }
+    ]
+  },
+  "guests": [],
+  "tags": [
+    "legacy-music",
+    "nasheed",
+    "video",
+    "archive",
+    "arabic-music"
+  ],
+  "explicit": false,
+  "status": "published"
+}
