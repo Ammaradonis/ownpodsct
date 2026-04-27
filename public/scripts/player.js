@@ -39,8 +39,9 @@ function initialisePlayer(wrapper) {
       const isCurrent = trackIndex === currentTrackIndex;
       const isRepeating = trackIndex === repeatingTrackIndex;
       button.classList.toggle('is-visible', repeatCurrentTrack && isCurrent);
-      button.classList.toggle('is-enabled', isRepeating);
       button.disabled = !isCurrent;
+      button.dataset.repeatEnabled = isRepeating ? 'true' : 'false';
+      button.textContent = isRepeating ? 'Repeating' : 'Repeat';
       button.setAttribute('aria-hidden', String(!repeatCurrentTrack || !isCurrent));
       button.setAttribute(
         'aria-label',

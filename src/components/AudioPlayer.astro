@@ -80,6 +80,7 @@ const tracks =
                 type="button"
                 class="track-repeat-button"
                 data-repeat-track-button
+                data-repeat-enabled="false"
                 data-track-index={index}
                 aria-label={`Repeat ${track.title} at the current playback speed`}
               >
@@ -182,10 +183,11 @@ const tracks =
     display: inline-flex;
   }
 
-  .track-repeat-button.is-enabled {
-    border-color: transparent;
-    background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft));
-    color: #fff9f2;
+  .track-repeat-button[data-repeat-enabled='true'] {
+    border-color: var(--color-accent-soft);
+    background: var(--color-accent-soft);
+    color: #1c2a31;
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-accent-soft) 24%, transparent);
   }
 
   .track-list span {
