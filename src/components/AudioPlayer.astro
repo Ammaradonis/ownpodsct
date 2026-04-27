@@ -10,6 +10,8 @@ interface Props {
 
 const { episode } = Astro.props;
 const audioTracks = episode.data.audio_tracks ?? [];
+const repeatEnabled = episode.data.slug === 'arabic-quranic-recordings';
+const shuffleEnabled = ['arabic-quranic-recordings', 'islamic-nasheeds-audio'].includes(episode.data.slug);
 const tracks =
   audioTracks.length > 0
     ? audioTracks
@@ -32,8 +34,8 @@ const tracks =
   data-mirror-url={episode.data.media.mirror_url ?? ''}
   data-title={episode.data.title}
   data-duration={tracks[0]?.duration_seconds ?? episode.data.duration_seconds}
-  data-repeat-current-track={episode.data.slug === 'arabic-quranic-recordings' ? 'true' : 'false'}
-  data-enable-shuffle={episode.data.slug === 'arabic-quranic-recordings' ? 'true' : 'false'}
+  data-repeat-current-track={repeatEnabled ? 'true' : 'false'}
+  data-enable-shuffle={shuffleEnabled ? 'true' : 'false'}
 >
   <div class="player-toolbar">
     <button type="button" data-skip="-15" aria-label="Skip back 15 seconds">-15s</button>
@@ -48,8 +50,12 @@ const tracks =
         <option value="2">2x</option>
       </select>
     </label>
-    {episode.data.slug === 'arabic-quranic-recordings' && (
-      <button type="button" data-shuffle-button aria-label="Play a different surah without repeats until all 114 have been shuffled">
+    {shuffleEnabled && (
+      <button
+        type="button"
+        data-shuffle-button
+        aria-label={`Play a different track without repeats until all ${tracks.length} tracks have been shuffled`}
+      >
         Shuffle
       </button>
     )}
