@@ -27,6 +27,7 @@ function initialisePlayer(wrapper) {
   const repeatTrackButtons = wrapper.querySelectorAll('[data-repeat-track-button]');
   const repeatCurrentTrack = wrapper.dataset.repeatCurrentTrack === 'true';
   let currentTrackIndex = 0;
+  let repeatingTrackIndex = null;
 
   const storageKeyForTrack = () => `${storageKey}:track:${currentTrackIndex}`;
   const setActiveTrackButton = () => {
@@ -34,10 +35,19 @@ function initialisePlayer(wrapper) {
       button.classList.toggle('is-active', Number(button.dataset.trackIndex || 0) === currentTrackIndex);
     });
     repeatTrackButtons.forEach((button) => {
-      const isCurrent = Number(button.dataset.trackIndex || 0) === currentTrackIndex;
+      const trackIndex = Number(button.dataset.trackIndex || 0);
+      const isCurrent = trackIndex === currentTrackIndex;
+      const isRepeating = trackIndex === repeatingTrackIndex;
       button.classList.toggle('is-visible', repeatCurrentTrack && isCurrent);
+      button.classList.toggle('is-enabled', isRepeating);
       button.disabled = !isCurrent;
       button.setAttribute('aria-hidden', String(!repeatCurrentTrack || !isCurrent));
+      button.setAttribute(
+        'aria-label',
+        isRepeating
+          ? 'Disable automatic repeat for the current track'
+          : 'Enable automatic repeat for the current track at the current playback speed',
+      );
     });
   };
 
@@ -66,6 +76,12 @@ function initialisePlayer(wrapper) {
   });
 
   media.addEventListener('ended', () => {
+    if (repeatCurrentTrack && repeatingTrackIndex === currentTrackIndex) {
+      media.currentTime = 0;
+      media.play().catch(() => {});
+      return;
+    }
+
     localStorage.removeItem(storageKeyForTrack());
   });
 
@@ -122,10 +138,8 @@ function initialisePlayer(wrapper) {
         return;
       }
 
-      const currentRate = media.playbackRate;
-      media.currentTime = 0;
-      media.playbackRate = currentRate;
-      media.play().catch(() => {});
+      repeatingTrackIndex = repeatingTrackIndex === targetTrackIndex ? null : targetTrackIndex;
+      setActiveTrackButton();
     });
   });
 
