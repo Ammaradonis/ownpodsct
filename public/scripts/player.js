@@ -31,6 +31,21 @@ function initialisePlayer(wrapper) {
   let currentTrackIndex = 0;
   let repeatingTrackIndex = null;
   let shuffledTrackIndices = new Set([0]);
+  let shuffleEnabled = false;
+
+  const pickNextShuffledTrackIndex = () => {
+    const allTrackIndices = trackButtons.map((_, index) => index);
+    let availableIndices = allTrackIndices.filter(
+      (index) => index !== currentTrackIndex && !shuffledTrackIndices.has(index),
+    );
+
+    if (availableIndices.length === 0) {
+      shuffledTrackIndices = new Set([currentTrackIndex]);
+      availableIndices = allTrackIndices.filter((index) => index !== currentTrackIndex);
+    }
+
+    return availableIndices[Math.floor(Math.random() * availableIndices.length)];
+  };
 
   const applyTrack = (nextTrackIndex, nextUrl, nextDuration) => {
     if (!nextUrl || nextTrackIndex === currentTrackIndex) {
@@ -112,6 +127,15 @@ function initialisePlayer(wrapper) {
       return;
     }
 
+    if (enableShuffle && shuffleEnabled && trackButtons.length > 1) {
+      const nextTrackIndex = pickNextShuffledTrackIndex();
+      const nextTrackButton = trackButtons[nextTrackIndex];
+      const nextUrl = nextTrackButton?.dataset.trackUrl;
+      const nextDuration = Number(nextTrackButton?.dataset.trackDuration || 0);
+      applyTrack(nextTrackIndex, nextUrl, nextDuration);
+      return;
+    }
+
     localStorage.removeItem(storageKeyForTrack());
   });
 
@@ -165,18 +189,8 @@ function initialisePlayer(wrapper) {
     if (!enableShuffle || trackButtons.length < 2) {
       return;
     }
-
-    const allTrackIndices = trackButtons.map((_, index) => index);
-    let availableIndices = allTrackIndices.filter(
-      (index) => index !== currentTrackIndex && !shuffledTrackIndices.has(index),
-    );
-
-    if (availableIndices.length === 0) {
-      shuffledTrackIndices = new Set([currentTrackIndex]);
-      availableIndices = allTrackIndices.filter((index) => index !== currentTrackIndex);
-    }
-
-    const nextTrackIndex = availableIndices[Math.floor(Math.random() * availableIndices.length)];
+    shuffleEnabled = true;
+    const nextTrackIndex = pickNextShuffledTrackIndex();
     const nextTrackButton = trackButtons[nextTrackIndex];
     const nextUrl = nextTrackButton?.dataset.trackUrl;
     const nextDuration = Number(nextTrackButton?.dataset.trackDuration || 0);
