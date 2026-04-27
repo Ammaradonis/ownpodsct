@@ -11,7 +11,11 @@ interface Props {
 const { episode } = Astro.props;
 const audioTracks = episode.data.audio_tracks ?? [];
 const repeatEnabled = episode.data.slug === 'arabic-quranic-recordings';
-const shuffleEnabled = ['arabic-quranic-recordings', 'islamic-nasheeds-audio'].includes(episode.data.slug);
+const shuffleEnabled = [
+  'arabic-quranic-recordings',
+  'islamic-nasheeds-audio',
+  'nasheed-music-taste',
+].includes(episode.data.slug);
 const tracks =
   audioTracks.length > 0
     ? audioTracks
