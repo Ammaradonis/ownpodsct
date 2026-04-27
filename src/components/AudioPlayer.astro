@@ -28,9 +28,11 @@ const tracks =
   class="player-shell card"
   data-player
   data-episode-id={episode.data.id}
+  data-episode-slug={episode.data.slug}
   data-mirror-url={episode.data.media.mirror_url ?? ''}
   data-title={episode.data.title}
   data-duration={tracks[0]?.duration_seconds ?? episode.data.duration_seconds}
+  data-repeat-current-track={episode.data.slug === 'arabic-quranic-recordings' ? 'true' : 'false'}
 >
   <div class="player-toolbar">
     <button type="button" data-skip="-15" aria-label="Skip back 15 seconds">-15s</button>
@@ -62,17 +64,28 @@ const tracks =
       <ul>
         {tracks.map((track, index) => (
           <li>
-            <button
-              type="button"
-              data-track-button
-              data-track-index={index}
-              data-track-url={track.url}
-              data-track-duration={track.duration_seconds}
-              class:list={{ 'is-active': index === 0 }}
-            >
-              <strong>{track.title}</strong>
-              <span>{formatShortDuration(track.duration_seconds)}</span>
-            </button>
+            <div class="track-row">
+              <button
+                type="button"
+                data-track-button
+                data-track-index={index}
+                data-track-url={track.url}
+                data-track-duration={track.duration_seconds}
+                class:list={{ 'is-active': index === 0 }}
+              >
+                <strong>{track.title}</strong>
+                <span>{formatShortDuration(track.duration_seconds)}</span>
+              </button>
+              <button
+                type="button"
+                class="track-repeat-button"
+                data-repeat-track-button
+                data-track-index={index}
+                aria-label={`Repeat ${track.title} at the current playback speed`}
+              >
+                Repeat
+              </button>
+            </div>
           </li>
         ))}
       </ul>
@@ -146,13 +159,41 @@ const tracks =
     text-align: left;
   }
 
+  .track-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 0.75rem;
+    align-items: stretch;
+  }
+
   .track-list button.is-active {
     border-color: var(--color-accent);
     background: color-mix(in srgb, var(--color-accent) 12%, var(--color-surface) 88%);
   }
 
+  .track-repeat-button {
+    display: none;
+    width: auto;
+    white-space: nowrap;
+    justify-content: center;
+  }
+
+  .track-repeat-button.is-visible {
+    display: inline-flex;
+  }
+
   .track-list span {
     color: var(--color-muted);
     font-variant-numeric: tabular-nums;
+  }
+
+  @media (max-width: 720px) {
+    .track-row {
+      grid-template-columns: 1fr;
+    }
+
+    .track-repeat-button {
+      width: 100%;
+    }
   }
 </style>

@@ -24,12 +24,20 @@ function initialisePlayer(wrapper) {
   const chapterButtons = wrapper.querySelectorAll('[data-chapter]');
   const copyTimestampButton = wrapper.querySelector('[data-copy-timestamp]');
   const trackButtons = wrapper.querySelectorAll('[data-track-button]');
+  const repeatTrackButtons = wrapper.querySelectorAll('[data-repeat-track-button]');
+  const repeatCurrentTrack = wrapper.dataset.repeatCurrentTrack === 'true';
   let currentTrackIndex = 0;
 
   const storageKeyForTrack = () => `${storageKey}:track:${currentTrackIndex}`;
   const setActiveTrackButton = () => {
     trackButtons.forEach((button) => {
       button.classList.toggle('is-active', Number(button.dataset.trackIndex || 0) === currentTrackIndex);
+    });
+    repeatTrackButtons.forEach((button) => {
+      const isCurrent = Number(button.dataset.trackIndex || 0) === currentTrackIndex;
+      button.classList.toggle('is-visible', repeatCurrentTrack && isCurrent);
+      button.disabled = !isCurrent;
+      button.setAttribute('aria-hidden', String(!repeatCurrentTrack || !isCurrent));
     });
   };
 
@@ -103,6 +111,20 @@ function initialisePlayer(wrapper) {
       media.load();
       lastSavedSecond = -1;
       setActiveTrackButton();
+      media.play().catch(() => {});
+    });
+  });
+
+  repeatTrackButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const targetTrackIndex = Number(button.dataset.trackIndex || 0);
+      if (targetTrackIndex !== currentTrackIndex) {
+        return;
+      }
+
+      const currentRate = media.playbackRate;
+      media.currentTime = 0;
+      media.playbackRate = currentRate;
       media.play().catch(() => {});
     });
   });
