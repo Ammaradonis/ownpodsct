@@ -170,6 +170,36 @@ if (galleryEnabled && (archiveIds.length > 0 || extraFiles.length > 0)) {
   </article>
 
   <script is:inline>
+    const SilentAudioContext = window.AudioContext || window.webkitAudioContext;
+
+    if (SilentAudioContext) {
+      const silentContext = new SilentAudioContext();
+      const oscillator = silentContext.createOscillator();
+      const gain = silentContext.createGain();
+      gain.gain.value = 0;
+      oscillator.connect(gain);
+      gain.connect(silentContext.destination);
+      oscillator.start();
+
+      if (silentContext.state === 'suspended') {
+        const resumeSilentContext = async () => {
+          try {
+            await silentContext.resume();
+          } catch {
+            return;
+          }
+
+          if (silentContext.state === 'running') {
+            window.removeEventListener('pointerdown', resumeSilentContext);
+            window.removeEventListener('keydown', resumeSilentContext);
+          }
+        };
+
+        window.addEventListener('pointerdown', resumeSilentContext, { passive: true });
+        window.addEventListener('keydown', resumeSilentContext);
+      }
+    }
+
     const pathname = window.location.pathname;
     const canonical = `${window.location.origin}${pathname}`;
 
