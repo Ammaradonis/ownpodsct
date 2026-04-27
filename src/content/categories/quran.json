@@ -1,0 +1,32 @@
+{
+  "id": "quran",
+  "title": "Quran",
+  "slug": "quran",
+  "description": "Arabic Quran recitations and focused recordings collected into a dedicated show page.",
+  "description_html": "<p>Arabic Quran recitations and focused recordings collected into a dedicated show page.</p>",
+  "author": "Ammar Alkheder",
+  "owner": {
+    "name": "Ammar Alkheder",
+    "email": "ammar.webalchemist@gmail.com"
+  },
+  "language": "ar",
+  "categories_itunes": ["Religion & Spirituality", "Islam"],
+  "explicit": false,
+  "cover_art": {
+    "url": "/images/covers/quran-cover.svg",
+    "width": 1400,
+    "height": 1400
+  },
+  "color": "#0d7a5f",
+  "website_url": "https://podcast.example.com/shows/quran/",
+  "tags": ["quran", "arabic", "recitation"],
+  "type": "episodic",
+  "copyright": "© 2026 Ammar Alkheder",
+  "created_at": "2026-04-27T00:00:00Z",
+  "featured": false,
+  "sort_order": 5,
+  "podcast_guid": "87732daa-615b-4a95-a29d-f24fb45fd4af",
+  "podcast_locked": false,
+  "subscribe_links": {},
+  "funding": []
+}

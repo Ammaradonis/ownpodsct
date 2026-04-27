@@ -1,0 +1,830 @@
+{
+  "id": "quran-arabic-quranic-recordings-2026-04-27",
+  "slug": "arabic-quranic-recordings",
+  "category_id": "quran",
+  "season": 1,
+  "episode_number": 1,
+  "episode_type": "full",
+  "title": "Arabic Quranic Recordings | تسجيلات قرآنية عربية",
+  "subtitle": "All 114 surahs by Saad al-Ghaamidi, ordered from 1 to 114 with bilingual track titles.",
+  "description": "A complete 114-surah Quran recitation collection by Saad al-Ghaamidi. Each surah is provided as its own audio track and labeled in both English and Arabic.",
+  "description_html": "<p>A complete 114-surah Quran recitation collection by Saad al-Ghaamidi. Each surah is provided as its own audio track and labeled in both English and Arabic.</p>",
+  "summary": "A full Quran recitation collection with 114 bilingual surah tracks from the Archive.org item 002_20260427.",
+  "publish_date": "2026-04-27T12:00:00Z",
+  "language": "ar",
+  "duration_seconds": 89084,
+  "media": {
+    "type": "audio",
+    "primary_url": "https://ia903200.us.archive.org/22/items/002_20260427/001.mp3",
+    "mime_type": "audio/mpeg",
+    "file_size_bytes": 1511552
+  },
+  "audio_tracks": [
+    {
+      "title": "001. Al-Fatihah | الفاتحة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/001.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 47,
+      "file_size_bytes": 1511552
+    },
+    {
+      "title": "002. Al-Baqarah | البقرة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/002.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 7054,
+      "file_size_bytes": 225745024
+    },
+    {
+      "title": "003. Ali 'Imran | آل عمران",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/003.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 3935,
+      "file_size_bytes": 125941888
+    },
+    {
+      "title": "004. An-Nisa | النساء",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/004.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 4388,
+      "file_size_bytes": 140413056
+    },
+    {
+      "title": "005. Al-Ma'idah | المائدة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/005.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 3018,
+      "file_size_bytes": 96577664
+    },
+    {
+      "title": "006. Al-An'am | الأنعام",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/006.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 3335,
+      "file_size_bytes": 106725504
+    },
+    {
+      "title": "007. Al-A'raf | الأعراف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/007.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 3855,
+      "file_size_bytes": 123361408
+    },
+    {
+      "title": "008. Al-Anfal | الأنفال",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/008.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1355,
+      "file_size_bytes": 43362432
+    },
+    {
+      "title": "009. At-Tawbah | التوبة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/009.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 2933,
+      "file_size_bytes": 93870208
+    },
+    {
+      "title": "010. Yunus | يونس",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/010.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 2120,
+      "file_size_bytes": 67858560
+    },
+    {
+      "title": "011. Hud | هود",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/011.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 2157,
+      "file_size_bytes": 69048448
+    },
+    {
+      "title": "012. Yusuf | يوسف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/012.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1936,
+      "file_size_bytes": 61950080
+    },
+    {
+      "title": "013. Ar-Ra'd | الرعد",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/013.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 898,
+      "file_size_bytes": 28737664
+    },
+    {
+      "title": "014. Ibrahim | إبراهيم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/014.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1074,
+      "file_size_bytes": 34375808
+    },
+    {
+      "title": "015. Al-Hijr | الحجر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/015.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 837,
+      "file_size_bytes": 26781824
+    },
+    {
+      "title": "016. An-Nahl | النحل",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/016.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 2051,
+      "file_size_bytes": 65638528
+    },
+    {
+      "title": "017. Al-Isra | الإسراء",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/017.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1740,
+      "file_size_bytes": 55705728
+    },
+    {
+      "title": "018. Al-Kahf | الكهف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/018.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1757,
+      "file_size_bytes": 56221824
+    },
+    {
+      "title": "019. Maryam | مريم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/019.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1056,
+      "file_size_bytes": 33804416
+    },
+    {
+      "title": "020. Ta-Ha | طه",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/020.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1362,
+      "file_size_bytes": 43585664
+    },
+    {
+      "title": "021. Al-Anbiya | الأنبياء",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/021.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1511,
+      "file_size_bytes": 48375936
+    },
+    {
+      "title": "022. Al-Hajj | الحج",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/022.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1494,
+      "file_size_bytes": 47829120
+    },
+    {
+      "title": "023. Al-Mu'minun | المؤمنون",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/023.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1319,
+      "file_size_bytes": 42211456
+    },
+    {
+      "title": "024. An-Nur | النور",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/024.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1588,
+      "file_size_bytes": 50833536
+    },
+    {
+      "title": "025. Al-Furqan | الفرقان",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/025.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 998,
+      "file_size_bytes": 31946880
+    },
+    {
+      "title": "026. Ash-Shu'ara | الشعراء",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/026.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1420,
+      "file_size_bytes": 45437056
+    },
+    {
+      "title": "027. An-Naml | النمل",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/027.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1418,
+      "file_size_bytes": 45377664
+    },
+    {
+      "title": "028. Al-Qasas | القصص",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/028.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1483,
+      "file_size_bytes": 47474816
+    },
+    {
+      "title": "029. Al-'Ankabut | العنكبوت",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/029.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1199,
+      "file_size_bytes": 38371456
+    },
+    {
+      "title": "030. Ar-Rum | الروم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/030.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 888,
+      "file_size_bytes": 28430464
+    },
+    {
+      "title": "031. Luqman | لقمان",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/031.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 567,
+      "file_size_bytes": 18161792
+    },
+    {
+      "title": "032. As-Sajdah | السجدة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/032.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 429,
+      "file_size_bytes": 13738112
+    },
+    {
+      "title": "033. Al-Ahzab | الأحزاب",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/033.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1535,
+      "file_size_bytes": 49143936
+    },
+    {
+      "title": "034. Saba | سبأ",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/034.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1017,
+      "file_size_bytes": 32561280
+    },
+    {
+      "title": "035. Fatir | فاطر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/035.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 863,
+      "file_size_bytes": 27613312
+    },
+    {
+      "title": "036. Ya-Sin | يس",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/036.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 789,
+      "file_size_bytes": 25258112
+    },
+    {
+      "title": "037. As-Saffat | الصافات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/037.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1069,
+      "file_size_bytes": 34205824
+    },
+    {
+      "title": "038. Sad | ص",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/038.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 882,
+      "file_size_bytes": 28229760
+    },
+    {
+      "title": "039. Az-Zumar | الزمر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/039.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1414,
+      "file_size_bytes": 45250688
+    },
+    {
+      "title": "040. Ghafir | غافر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/040.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1336,
+      "file_size_bytes": 42750080
+    },
+    {
+      "title": "041. Fussilat | فصلت",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/041.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 922,
+      "file_size_bytes": 29513856
+    },
+    {
+      "title": "042. Ash-Shura | الشورى",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/042.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 927,
+      "file_size_bytes": 29669504
+    },
+    {
+      "title": "043. Az-Zukhruf | الزخرف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/043.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 1002,
+      "file_size_bytes": 32059520
+    },
+    {
+      "title": "044. Ad-Dukhan | الدخان",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/044.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 412,
+      "file_size_bytes": 13205632
+    },
+    {
+      "title": "045. Al-Jathiyah | الجاثية",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/045.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 540,
+      "file_size_bytes": 17293440
+    },
+    {
+      "title": "046. Al-Ahqaf | الأحقاف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/046.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 716,
+      "file_size_bytes": 22935680
+    },
+    {
+      "title": "047. Muhammad | محمد",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/047.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 591,
+      "file_size_bytes": 18925696
+    },
+    {
+      "title": "048. Al-Fath | الفتح",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/048.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 621,
+      "file_size_bytes": 19896448
+    },
+    {
+      "title": "049. Al-Hujurat | الحجرات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/049.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 389,
+      "file_size_bytes": 12466304
+    },
+    {
+      "title": "050. Qaf | ق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/050.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 437,
+      "file_size_bytes": 14006400
+    },
+    {
+      "title": "051. Adh-Dhariyat | الذاريات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/051.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 415,
+      "file_size_bytes": 13301888
+    },
+    {
+      "title": "052. At-Tur | الطور",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/052.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 364,
+      "file_size_bytes": 11649152
+    },
+    {
+      "title": "053. An-Najm | النجم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/053.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 430,
+      "file_size_bytes": 13783168
+    },
+    {
+      "title": "054. Al-Qamar | القمر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/054.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 396,
+      "file_size_bytes": 12691584
+    },
+    {
+      "title": "055. Ar-Rahman | الرحمن",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/055.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 511,
+      "file_size_bytes": 16371840
+    },
+    {
+      "title": "056. Al-Waqi'ah | الواقعة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/056.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 503,
+      "file_size_bytes": 16111744
+    },
+    {
+      "title": "057. Al-Hadid | الحديد",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/057.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 676,
+      "file_size_bytes": 21639296
+    },
+    {
+      "title": "058. Al-Mujadilah | المجادلة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/058.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 528,
+      "file_size_bytes": 16912512
+    },
+    {
+      "title": "059. Al-Hashr | الحشر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/059.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 502,
+      "file_size_bytes": 16089216
+    },
+    {
+      "title": "060. Al-Mumtahanah | الممتحنة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/060.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 419,
+      "file_size_bytes": 13406336
+    },
+    {
+      "title": "061. As-Saff | الصف",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/061.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 251,
+      "file_size_bytes": 8026240
+    },
+    {
+      "title": "062. Al-Jumu'ah | الجمعة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/062.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 191,
+      "file_size_bytes": 6109312
+    },
+    {
+      "title": "063. Al-Munafiqun | المنافقون",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/063.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 200,
+      "file_size_bytes": 6404224
+    },
+    {
+      "title": "064. At-Taghabun | التغابن",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/064.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 270,
+      "file_size_bytes": 8659072
+    },
+    {
+      "title": "065. At-Talaq | الطلاق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/065.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 320,
+      "file_size_bytes": 10258560
+    },
+    {
+      "title": "066. At-Tahrim | التحريم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/066.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 291,
+      "file_size_bytes": 9324672
+    },
+    {
+      "title": "067. Al-Mulk | الملك",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/067.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 384,
+      "file_size_bytes": 12300416
+    },
+    {
+      "title": "068. Al-Qalam | القلم",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/068.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 358,
+      "file_size_bytes": 11450496
+    },
+    {
+      "title": "069. Al-Haqqah | الحاقة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/069.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 331,
+      "file_size_bytes": 10600576
+    },
+    {
+      "title": "070. Al-Ma'arij | المعارج",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/070.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 279,
+      "file_size_bytes": 8945792
+    },
+    {
+      "title": "071. Nuh | نوح",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/071.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 262,
+      "file_size_bytes": 8394880
+    },
+    {
+      "title": "072. Al-Jinn | الجن",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/072.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 305,
+      "file_size_bytes": 9762944
+    },
+    {
+      "title": "073. Al-Muzzammil | المزمل",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/073.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 235,
+      "file_size_bytes": 7518336
+    },
+    {
+      "title": "074. Al-Muddaththir | المدثر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/074.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 300,
+      "file_size_bytes": 9607296
+    },
+    {
+      "title": "075. Al-Qiyamah | القيامة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/075.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 180,
+      "file_size_bytes": 5783680
+    },
+    {
+      "title": "076. Al-Insan | الإنسان",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/076.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 285,
+      "file_size_bytes": 9146496
+    },
+    {
+      "title": "077. Al-Mursalat | المرسلات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/077.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 242,
+      "file_size_bytes": 7757952
+    },
+    {
+      "title": "078. An-Naba | النبأ",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/078.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 239,
+      "file_size_bytes": 7663744
+    },
+    {
+      "title": "079. An-Nazi'at | النازعات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/079.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 220,
+      "file_size_bytes": 7039104
+    },
+    {
+      "title": "080. 'Abasa | عبس",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/080.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 185,
+      "file_size_bytes": 5931136
+    },
+    {
+      "title": "081. At-Takwir | التكوير",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/081.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 124,
+      "file_size_bytes": 3963008
+    },
+    {
+      "title": "082. Al-Infitar | الانفطار",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/082.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 101,
+      "file_size_bytes": 3248256
+    },
+    {
+      "title": "083. Al-Mutaffifin | المطففين",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/083.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 226,
+      "file_size_bytes": 7254144
+    },
+    {
+      "title": "084. Al-Inshiqaq | الانشقاق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/084.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 127,
+      "file_size_bytes": 4065408
+    },
+    {
+      "title": "085. Al-Buruj | البروج",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/085.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 138,
+      "file_size_bytes": 4419712
+    },
+    {
+      "title": "086. At-Tariq | الطارق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/086.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 76,
+      "file_size_bytes": 2431104
+    },
+    {
+      "title": "087. Al-A'la | الأعلى",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/087.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 80,
+      "file_size_bytes": 2576512
+    },
+    {
+      "title": "088. Al-Ghashiyah | الغاشية",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/088.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 113,
+      "file_size_bytes": 3616896
+    },
+    {
+      "title": "089. Al-Fajr | الفجر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/089.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 172,
+      "file_size_bytes": 5503104
+    },
+    {
+      "title": "090. Al-Balad | البلد",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/090.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 95,
+      "file_size_bytes": 3051648
+    },
+    {
+      "title": "091. Ash-Shams | الشمس",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/091.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 71,
+      "file_size_bytes": 2279552
+    },
+    {
+      "title": "092. Al-Layl | الليل",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/092.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 92,
+      "file_size_bytes": 2945152
+    },
+    {
+      "title": "093. Ad-Duhaa | الضحى",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/093.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 53,
+      "file_size_bytes": 1697920
+    },
+    {
+      "title": "094. Ash-Sharh | الشرح",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/094.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 31,
+      "file_size_bytes": 1009792
+    },
+    {
+      "title": "095. At-Tin | التين",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/095.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 48,
+      "file_size_bytes": 1542272
+    },
+    {
+      "title": "096. Al-'Alaq | العلق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/096.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 81,
+      "file_size_bytes": 2607232
+    },
+    {
+      "title": "097. Al-Qadr | القدر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/097.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 36,
+      "file_size_bytes": 1167488
+    },
+    {
+      "title": "098. Al-Bayyinah | البينة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/098.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 111,
+      "file_size_bytes": 3555456
+    },
+    {
+      "title": "099. Az-Zalzalah | الزلزلة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/099.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 47,
+      "file_size_bytes": 1517696
+    },
+    {
+      "title": "100. Al-'Adiyat | العاديات",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/100.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 56,
+      "file_size_bytes": 1796224
+    },
+    {
+      "title": "101. Al-Qari'ah | القارعة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/101.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 49,
+      "file_size_bytes": 1591424
+    },
+    {
+      "title": "102. At-Takathur | التكاثر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/102.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 43,
+      "file_size_bytes": 1388672
+    },
+    {
+      "title": "103. Al-'Asr | العصر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/103.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 21,
+      "file_size_bytes": 671872
+    },
+    {
+      "title": "104. Al-Humazah | الهمزة",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/104.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 44,
+      "file_size_bytes": 1405056
+    },
+    {
+      "title": "105. Al-Fil | الفيل",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/105.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 32,
+      "file_size_bytes": 1020032
+    },
+    {
+      "title": "106. Quraysh | قريش",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/106.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 30,
+      "file_size_bytes": 974976
+    },
+    {
+      "title": "107. Al-Ma'un | الماعون",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/107.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 39,
+      "file_size_bytes": 1269888
+    },
+    {
+      "title": "108. Al-Kawthar | الكوثر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/108.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 17,
+      "file_size_bytes": 555136
+    },
+    {
+      "title": "109. Al-Kafirun | الكافرون",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/109.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 39,
+      "file_size_bytes": 1241216
+    },
+    {
+      "title": "110. An-Nasr | النصر",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/110.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 27,
+      "file_size_bytes": 862336
+    },
+    {
+      "title": "111. Al-Masad | المسد",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/111.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 31,
+      "file_size_bytes": 997504
+    },
+    {
+      "title": "112. Al-Ikhlas | الإخلاص",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/112.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 16,
+      "file_size_bytes": 524416
+    },
+    {
+      "title": "113. Al-Falaq | الفلق",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/113.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 27,
+      "file_size_bytes": 884864
+    },
+    {
+      "title": "114. An-Nas | الناس",
+      "url": "https://ia903200.us.archive.org/22/items/002_20260427/114.mp3",
+      "mime_type": "audio/mpeg",
+      "duration_seconds": 35,
+      "file_size_bytes": 1116288
+    }
+  ],
+  "archive_identifier": "002_20260427",
+  "archive_url": "https://archive.org/details/002_20260427",
+  "chapters": [],
+  "show_notes_markdown": "## Source\n- [Archive.org item 002_20260427](https://archive.org/details/002_20260427)\n\n## Reciter\n- Saad al-Ghaamidi\n\n## Collection\n- 114 surahs\n- Tracks are ordered from 001 to 114\n- Each track title is shown in English and Arabic",
+  "guests": [],
+  "tags": ["quran", "arabic", "recitation", "saad-al-ghaamidi"],
+  "explicit": false,
+  "status": "published"
+}
