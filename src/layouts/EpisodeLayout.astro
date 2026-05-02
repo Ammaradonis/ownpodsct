@@ -25,11 +25,12 @@ let archiveError: string | null = null;
 const galleryEnabled = episode.data.archive_gallery?.enabled === true;
 const archiveIds = episode.data.archive_gallery?.additional_identifiers ?? [];
 const extraFiles = episode.data.archive_gallery?.extra_files ?? [];
+const hiddenArchiveKinds = new Set(episode.data.archive_gallery?.hidden_kinds ?? []);
 
 if (galleryEnabled && (archiveIds.length > 0 || extraFiles.length > 0)) {
   try {
     const result = await loadArchiveGallery(archiveIds, extraFiles);
-    archiveFiles = result.files;
+    archiveFiles = result.files.filter(({ kind }) => !hiddenArchiveKinds.has(kind));
   } catch (err) {
     archiveError = (err as Error).message;
   }

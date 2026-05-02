@@ -123,6 +123,7 @@ export const archiveGallerySchema = z
     enabled: z.boolean(),
     title: z.string().min(1).max(255).optional(),
     description: z.string().max(4000).optional(),
+    hidden_kinds: z.array(z.enum(['image', 'video', 'audio'])).default([]),
     additional_identifiers: z.array(z.string().min(1).max(255)).default([]),
     extra_files: z
       .array(

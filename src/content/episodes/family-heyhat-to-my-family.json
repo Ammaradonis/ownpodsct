@@ -31,6 +31,7 @@
   "chapters": [],
   "archive_gallery": {
     "enabled": true,
+    "hidden_kinds": ["audio"],
     "additional_identifiers": ["20260105-165205", "20250802-100059", "20260426-192827"]
   },
   "guests": [],
