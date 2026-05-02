@@ -41,6 +41,15 @@
   "archive_identifier": "repentance-ep.-1",
   "archive_url": "https://archive.org/details/repentance-ep.-1",
   "chapters": [],
+  "archive_gallery": {
+    "enabled": true,
+    "extra_files": [
+      {
+        "url": "https://dn710204.ca.archive.org/0/items/20260426-192827/LoserdomStory.m4a",
+        "kind": "audio"
+      }
+    ]
+  },
   "show_notes_markdown": "## Tracks\n- Repentance Ep. 1\n- Voice 260425 190504 Join\n\n## Sources\n- [Repentance Ep. 1](https://archive.org/details/repentance-ep.-1)\n- [Jurisprudence Ep. 1](https://archive.org/details/jurisprudence-ep.-1)",
   "guests": [],
   "tags": [],
